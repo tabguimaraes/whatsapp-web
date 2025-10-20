@@ -1,0 +1,10 @@
+background: #f7f5f3;
+background da tela das conversas: #f5f1eb;
+background das mensagens entre usuários: #ffffff
+cor do texto das mensagens ativas na tela de conversas: #0A0A0A
+cor do texto da ultima mensagem na barra lateral de contatos: #00000099
+cor do bg alerta de mensagens não lidas / texto do dia que a msg foi recebida: #1DAA61;
+bg barra de pesquisa de msg: #c2bdb826
+
+
+
