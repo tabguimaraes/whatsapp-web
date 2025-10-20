@@ -9,12 +9,16 @@
       "Courier New", monospace;
     --color-amber-50: oklch(98.7% 0.022 95.277);
     --color-amber-400: oklch(82.8% 0.189 84.429);
+    --color-pink-600: oklch(59.2% 0.249 0.584);
+    --color-gray-700: oklch(37.3% 0.034 259.733);
     --color-white: #fff;
     --spacing: 0.25rem;
     --text-2xl: 1.5rem;
     --text-2xl--line-height: calc(2 / 1.5);
     --font-weight-medium: 500;
     --font-weight-bold: 700;
+    --radius-2xl: 1rem;
+    --radius-3xl: 1.5rem;
     --default-transition-duration: 150ms;
     --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     --default-font-family: var(--font-sans);
@@ -201,6 +205,9 @@
   .w-\[400px\] {
     width: 400px;
   }
+  .w-full {
+    width: 100%;
+  }
   .border-collapse {
     border-collapse: collapse;
   }
@@ -234,11 +241,20 @@
   .justify-center {
     justify-content: center;
   }
+  .gap-2 {
+    gap: calc(var(--spacing) * 2);
+  }
   .gap-5 {
     gap: calc(var(--spacing) * 5);
   }
   .overflow-hidden {
     overflow: hidden;
+  }
+  .rounded-2xl {
+    border-radius: var(--radius-2xl);
+  }
+  .rounded-3xl {
+    border-radius: var(--radius-3xl);
   }
   .rounded-full {
     border-radius: calc(infinity * 1px);
@@ -246,6 +262,27 @@
   .border {
     border-style: var(--tw-border-style);
     border-width: 1px;
+  }
+  .border-0 {
+    border-style: var(--tw-border-style);
+    border-width: 0px;
+  }
+  .border-2 {
+    border-style: var(--tw-border-style);
+    border-width: 2px;
+  }
+  .border-none {
+    --tw-border-style: none;
+    border-style: none;
+  }
+  .border-gray-700 {
+    border-color: var(--color-gray-700);
+  }
+  .bg-\[\#c2bdb826\] {
+    background-color: #c2bdb826;
+  }
+  .bg-\[\#d9fdd3\] {
+    background-color: #d9fdd3;
   }
   .bg-\[\#f7f5f3\] {
     background-color: #f7f5f3;
@@ -271,6 +308,9 @@
   .p-1\.5 {
     padding: calc(var(--spacing) * 1.5);
   }
+  .p-3 {
+    padding: calc(var(--spacing) * 3);
+  }
   .p-5 {
     padding: calc(var(--spacing) * 5);
   }
@@ -282,6 +322,9 @@
   }
   .py-10 {
     padding-block: calc(var(--spacing) * 10);
+  }
+  .pt-2 {
+    padding-top: calc(var(--spacing) * 2);
   }
   .pt-5 {
     padding-top: calc(var(--spacing) * 5);
@@ -319,9 +362,24 @@
     transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
     transition-duration: var(--tw-duration, var(--default-transition-duration));
   }
+  .\*\:rounded-3xl {
+    :is(& > *) {
+      border-radius: var(--radius-3xl);
+    }
+  }
   .\*\:rounded-full {
     :is(& > *) {
       border-radius: calc(infinity * 1px);
+    }
+  }
+  .\*\:bg-\[\#1DAA61\] {
+    :is(& > *) {
+      background-color: #1DAA61;
+    }
+  }
+  .\*\:bg-\[\#d9fdd3\] {
+    :is(& > *) {
+      background-color: #d9fdd3;
     }
   }
   .\*\:p-2 {
@@ -332,6 +390,26 @@
   .\*\:p-5 {
     :is(& > *) {
       padding: calc(var(--spacing) * 5);
+    }
+  }
+  .\*\:px-1\.5 {
+    :is(& > *) {
+      padding-inline: calc(var(--spacing) * 1.5);
+    }
+  }
+  .\*\:px-3 {
+    :is(& > *) {
+      padding-inline: calc(var(--spacing) * 3);
+    }
+  }
+  .\*\:py-1\.5 {
+    :is(& > *) {
+      padding-block: calc(var(--spacing) * 1.5);
+    }
+  }
+  .\*\:py-3 {
+    :is(& > *) {
+      padding-block: calc(var(--spacing) * 3);
     }
   }
   .\*\:transition {
@@ -352,6 +430,20 @@
     &:hover {
       @media (hover: hover) {
         border-radius: calc(infinity * 1px);
+      }
+    }
+  }
+  .hover\:bg-\[\#c2bdb826\] {
+    &:hover {
+      @media (hover: hover) {
+        background-color: #c2bdb826;
+      }
+    }
+  }
+  .hover\:bg-\[\#d9fdd3\] {
+    &:hover {
+      @media (hover: hover) {
+        background-color: #d9fdd3;
       }
     }
   }
@@ -387,6 +479,15 @@
       }
     }
   }
+  .\*\:hover\:bg-\[\#d9fdd3\] {
+    :is(& > *) {
+      &:hover {
+        @media (hover: hover) {
+          background-color: #d9fdd3;
+        }
+      }
+    }
+  }
   .\*\:hover\:bg-white {
     :is(& > *) {
       &:hover {
@@ -402,6 +503,23 @@
         @media (hover: hover) {
           padding: calc(var(--spacing) * 1.5);
         }
+      }
+    }
+  }
+  .focus\:border-\[\#1DAA61\] {
+    &:focus {
+      border-color: #1DAA61;
+    }
+  }
+  .focus\:border-pink-600 {
+    &:focus {
+      border-color: var(--color-pink-600);
+    }
+  }
+  .\*\:active\:bg-\[\#d9fdd3\] {
+    :is(& > *) {
+      &:active {
+        background-color: #d9fdd3;
       }
     }
   }

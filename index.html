@@ -202,7 +202,7 @@
         </div>
       </div>
     </section>
-    <section class="bg-white p-5" id="contactList">
+    <section class="flex flex-col bg-white p-5" id="contactList">
       <div class="flex justify-between" id="containerContacts">
         <div id="logo">
           <svg
@@ -265,6 +265,22 @@
           </div>
         </div>
       </div>
+      <form class="pt-5" action="">
+        <input
+          class="w-full rounded-3xl bg-[#c2bdb826] p-3"
+          type="text"
+          placeholder="Pesquisar ou começar uma nova conversa"
+        />
+        <div
+          class="flex gap-2 pt-2 *:rounded-3xl *:px-3 *:py-1.5 *:hover:cursor-pointer"
+          id="containerButtons"
+        >
+          <button class="bg-[#d9fdd3]">Tudo</button
+          ><button class="hover:bg-[#c2bdb826]">Não lidas</button
+          ><button class="hover:bg-[#c2bdb826]">Favoritas</button
+          ><button class="hover:bg-[#c2bdb826]">Grupos</button>
+        </div>
+      </form>
     </section>
     <main></main>
   </body>
