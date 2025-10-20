@@ -193,17 +193,17 @@
     width: calc(var(--spacing) * 10);
     height: calc(var(--spacing) * 10);
   }
-  .h-\[200px\] {
-    height: 200px;
-  }
   .h-dvh {
     height: 100dvh;
+  }
+  .w-0 {
+    width: calc(var(--spacing) * 0);
   }
   .w-28 {
     width: calc(var(--spacing) * 28);
   }
-  .w-\[400px\] {
-    width: 400px;
+  .w-fit {
+    width: fit-content;
   }
   .w-full {
     width: 100%;
@@ -217,17 +217,17 @@
   .grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
-  .grid-cols-\[50px_500px_auto\] {
-    grid-template-columns: 50px 500px auto;
+  .grid-cols-\[50px_auto_20px\] {
+    grid-template-columns: 50px auto 20px;
+  }
+  .grid-cols-\[50px_auto_40px\] {
+    grid-template-columns: 50px auto 40px;
   }
   .grid-cols-\[64px_565px_auto\] {
     grid-template-columns: 64px 565px auto;
   }
   .grid-cols-\[80px_500px_auto\] {
     grid-template-columns: 80px 500px auto;
-  }
-  .grid-cols-\[100px_300px_auto\] {
-    grid-template-columns: 100px 300px auto;
   }
   .flex-col {
     flex-direction: column;
@@ -240,6 +240,9 @@
   }
   .justify-center {
     justify-content: center;
+  }
+  .justify-end {
+    justify-content: flex-end;
   }
   .gap-2 {
     gap: calc(var(--spacing) * 2);
@@ -278,6 +281,9 @@
   .border-gray-700 {
     border-color: var(--color-gray-700);
   }
+  .bg-\[\#1DAA61\] {
+    background-color: #1DAA61;
+  }
   .bg-\[\#c2bdb826\] {
     background-color: #c2bdb826;
   }
@@ -286,9 +292,6 @@
   }
   .bg-\[\#f7f5f3\] {
     background-color: #f7f5f3;
-  }
-  .bg-\[rgb\(247_245_243\)\] {
-    background-color: rgb(247 245 243);
   }
   .bg-amber-50 {
     background-color: var(--color-amber-50);
@@ -308,14 +311,26 @@
   .p-1\.5 {
     padding: calc(var(--spacing) * 1.5);
   }
+  .p-2 {
+    padding: calc(var(--spacing) * 2);
+  }
   .p-3 {
     padding: calc(var(--spacing) * 3);
+  }
+  .p-4 {
+    padding: calc(var(--spacing) * 4);
   }
   .p-5 {
     padding: calc(var(--spacing) * 5);
   }
+  .px-2 {
+    padding-inline: calc(var(--spacing) * 2);
+  }
   .px-5 {
     padding-inline: calc(var(--spacing) * 5);
+  }
+  .py-1 {
+    padding-block: calc(var(--spacing) * 1);
   }
   .py-5 {
     padding-block: calc(var(--spacing) * 5);
@@ -335,6 +350,9 @@
   .pt-8 {
     padding-top: calc(var(--spacing) * 8);
   }
+  .pt-16 {
+    padding-top: calc(var(--spacing) * 16);
+  }
   .text-2xl {
     font-size: var(--text-2xl);
     line-height: var(--tw-leading, var(--text-2xl--line-height));
@@ -350,6 +368,12 @@
   .text-\[\#1DAA61\] {
     color: #1DAA61;
   }
+  .text-\[\#00000099\] {
+    color: #00000099;
+  }
+  .text-white {
+    color: var(--color-white);
+  }
   .underline {
     text-decoration-line: underline;
   }
@@ -361,6 +385,11 @@
     transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter, display, content-visibility, overlay, pointer-events;
     transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
     transition-duration: var(--tw-duration, var(--default-transition-duration));
+  }
+  .\*\:rounded-2xl {
+    :is(& > *) {
+      border-radius: var(--radius-2xl);
+    }
   }
   .\*\:rounded-3xl {
     :is(& > *) {
@@ -410,6 +439,11 @@
   .\*\:py-3 {
     :is(& > *) {
       padding-block: calc(var(--spacing) * 3);
+    }
+  }
+  .\*\:text-end {
+    :is(& > *) {
+      text-align: end;
     }
   }
   .\*\:transition {
