@@ -289,6 +289,9 @@
   .h-dvh {
     height: 100dvh;
   }
+  .h-fit {
+    height: fit-content;
+  }
   .h-full {
     height: 100%;
   }
@@ -309,6 +312,9 @@
   }
   .resize {
     resize: both;
+  }
+  .auto-rows-min {
+    grid-auto-rows: min-content;
   }
   .grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -334,6 +340,15 @@
   .flex-col {
     flex-direction: column;
   }
+  .place-content-baseline {
+    place-content: baseline;
+  }
+  .place-items-baseline {
+    place-items: baseline;
+  }
+  .content-end {
+    align-content: flex-end;
+  }
   .items-center {
     align-items: center;
   }
@@ -357,6 +372,21 @@
   }
   .gap-6 {
     gap: calc(var(--spacing) * 6);
+  }
+  .place-self-end {
+    place-self: end;
+  }
+  .justify-self-auto {
+    justify-self: auto;
+  }
+  .justify-self-end {
+    justify-self: flex-end;
+  }
+  .justify-self-end-safe {
+    justify-self: safe flex-end;
+  }
+  .justify-self-stretch {
+    justify-self: stretch;
   }
   .overflow-auto {
     overflow: auto;
@@ -455,6 +485,9 @@
   .pt-5 {
     padding-top: calc(var(--spacing) * 5);
   }
+  .pr-5 {
+    padding-right: calc(var(--spacing) * 5);
+  }
   .pl-5 {
     padding-left: calc(var(--spacing) * 5);
   }
@@ -472,6 +505,12 @@
   }
   .pl-24 {
     padding-left: calc(var(--spacing) * 24);
+  }
+  .text-end {
+    text-align: end;
+  }
+  .align-bottom {
+    vertical-align: bottom;
   }
   .text-xl {
     font-size: var(--text-xl);
