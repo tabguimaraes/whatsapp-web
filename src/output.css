@@ -15,6 +15,9 @@
     --spacing: 0.25rem;
     --text-xl: 1.25rem;
     --text-xl--line-height: calc(1.75 / 1.25);
+    --radius-xs: 0.125rem;
+    --radius-lg: 0.5rem;
+    --radius-xl: 0.75rem;
     --radius-2xl: 1rem;
     --radius-3xl: 1.5rem;
     --default-transition-duration: 150ms;
@@ -343,8 +346,14 @@
   .place-content-baseline {
     place-content: baseline;
   }
+  .place-content-end {
+    place-content: end;
+  }
   .place-items-baseline {
     place-items: baseline;
+  }
+  .place-items-end {
+    place-items: end;
   }
   .content-end {
     align-content: flex-end;
@@ -376,6 +385,9 @@
   .place-self-end {
     place-self: end;
   }
+  .place-self-start {
+    place-self: start;
+  }
   .justify-self-auto {
     justify-self: auto;
   }
@@ -394,11 +406,23 @@
   .overflow-hidden {
     overflow: hidden;
   }
+  .rounded {
+    border-radius: 0.25rem;
+  }
   .rounded-3xl {
     border-radius: var(--radius-3xl);
   }
   .rounded-full {
     border-radius: calc(infinity * 1px);
+  }
+  .rounded-lg {
+    border-radius: var(--radius-lg);
+  }
+  .rounded-xl {
+    border-radius: var(--radius-xl);
+  }
+  .rounded-xs {
+    border-radius: var(--radius-xs);
   }
   .border {
     border-style: var(--tw-border-style);
@@ -470,8 +494,23 @@
   .px-5 {
     padding-inline: calc(var(--spacing) * 5);
   }
+  .px-10 {
+    padding-inline: calc(var(--spacing) * 10);
+  }
+  .px-14 {
+    padding-inline: calc(var(--spacing) * 14);
+  }
+  .py-0 {
+    padding-block: calc(var(--spacing) * 0);
+  }
   .py-1 {
     padding-block: calc(var(--spacing) * 1);
+  }
+  .py-2 {
+    padding-block: calc(var(--spacing) * 2);
+  }
+  .py-2\.5 {
+    padding-block: calc(var(--spacing) * 2.5);
   }
   .py-5 {
     padding-block: calc(var(--spacing) * 5);
@@ -487,6 +526,21 @@
   }
   .pr-5 {
     padding-right: calc(var(--spacing) * 5);
+  }
+  .pr-10 {
+    padding-right: calc(var(--spacing) * 10);
+  }
+  .pr-14 {
+    padding-right: calc(var(--spacing) * 14);
+  }
+  .pl-0 {
+    padding-left: calc(var(--spacing) * 0);
+  }
+  .pl-1 {
+    padding-left: calc(var(--spacing) * 1);
+  }
+  .pl-2 {
+    padding-left: calc(var(--spacing) * 2);
   }
   .pl-5 {
     padding-left: calc(var(--spacing) * 5);
@@ -545,6 +599,16 @@
   .\*\:rounded-full {
     :is(& > *) {
       border-radius: calc(infinity * 1px);
+    }
+  }
+  .\*\:bg-\[\#d9fdd3\] {
+    :is(& > *) {
+      background-color: #d9fdd3;
+    }
+  }
+  .\*\:bg-white {
+    :is(& > *) {
+      background-color: var(--color-white);
     }
   }
   .\*\:p-2 {
