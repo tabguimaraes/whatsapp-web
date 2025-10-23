@@ -13,6 +13,10 @@
     --color-gray-400: oklch(70.7% 0.022 261.325);
     --color-white: #fff;
     --spacing: 0.25rem;
+    --text-xs: 0.75rem;
+    --text-xs--line-height: calc(1 / 0.75);
+    --text-sm: 0.875rem;
+    --text-sm--line-height: calc(1.25 / 0.875);
     --text-xl: 1.25rem;
     --text-xl--line-height: calc(1.75 / 1.25);
     --radius-xs: 0.125rem;
@@ -235,6 +239,9 @@
   .bottom-\[10\%\] {
     bottom: 10%;
   }
+  .bottom-\[26\%\] {
+    bottom: 26%;
+  }
   .bottom-\[27\%\] {
     bottom: 27%;
   }
@@ -400,8 +407,14 @@
   .content-end {
     align-content: flex-end;
   }
+  .items-baseline {
+    align-items: baseline;
+  }
   .items-center {
     align-items: center;
+  }
+  .items-end {
+    align-items: flex-end;
   }
   .justify-between {
     justify-content: space-between;
@@ -519,12 +532,29 @@
   .pr-14 {
     padding-right: calc(var(--spacing) * 14);
   }
+  .pl-5 {
+    padding-left: calc(var(--spacing) * 5);
+  }
+  .pl-10 {
+    padding-left: calc(var(--spacing) * 10);
+  }
+  .pl-16 {
+    padding-left: calc(var(--spacing) * 16);
+  }
   .pl-22 {
     padding-left: calc(var(--spacing) * 22);
+  }
+  .text-sm {
+    font-size: var(--text-sm);
+    line-height: var(--tw-leading, var(--text-sm--line-height));
   }
   .text-xl {
     font-size: var(--text-xl);
     line-height: var(--tw-leading, var(--text-xl--line-height));
+  }
+  .text-xs {
+    font-size: var(--text-xs);
+    line-height: var(--tw-leading, var(--text-xs--line-height));
   }
   .text-\[\#1DAA61\] {
     color: #1DAA61;
