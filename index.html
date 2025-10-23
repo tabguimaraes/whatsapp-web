@@ -516,7 +516,19 @@
           </div>
         </div>
       </header>
-      <section class="h-full flex-1" id="messageBoard"></section>
+      <section
+        class="grid h-full flex-1 grid-cols-4 gap-4 px-5 pt-5"
+        id="messageBoard"
+      >
+        <div
+          class="col-start-1 col-end-4 border-2 border-blue-700"
+          id="receivedMessages"
+        ></div>
+        <div
+          class="col-start-2 col-end-5 border-2 border-amber-500"
+          id="sentMessages"
+        ></div>
+      </section>
       <form class="p-5" action="" id="inputMessage">
         <label class="relative" for="">
           <svg
@@ -572,24 +584,3 @@
     </main>
   </body>
 </html>
-
-<!-- SVG "+" DO INPUT
-
-<svg
-          viewBox="0 0 24 24"
-          height="24"
-          width="24"
-          preserveAspectRatio="xMidYMid meet"
-          class=""
-          fill="none"
-        >
-          <title>plus-rounded</title>
-          <path
-            d="M11 13H5.5C4.94772 13 4.5 12.5523 4.5 12C4.5 11.4477 4.94772 11 5.5 11H11V5.5C11 4.94772 11.4477 4.5 12 4.5C12.5523 4.5 13 4.94772 13 5.5V11H18.5C19.0523 11 19.5 11.4477 19.5 12C19.5 12.5523 19.0523 13 18.5 13H13V18.5C13 19.0523 12.5523 19.5 12 19.5C11.4477 19.5 11 19.0523 11 18.5V13Z"
-            fill="currentColor"
-          ></path>
-        </svg>
-
-
-
--->
