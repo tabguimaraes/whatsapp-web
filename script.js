@@ -9,3 +9,16 @@ console.log(
     hour12: false,
   }),
 );
+
+const container = {
+  receivedMessages: document.querySelectorAll(".receivedMessages div p"),
+  sentMessages: document.querySelectorAll(".sentMessages div p"),
+};
+
+console.log(container.receivedMessages);
+
+let span = document.createElement("span");
+
+span.innerText = " insert hour";
+
+container.sentMessages[2].appendChild(span);
