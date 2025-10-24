@@ -14,10 +14,11 @@ const elemento = {
   user_profile: document.querySelector("#userProfile"),
 };
 
-console.log(elemento.user_profile);
+// console.log(elemento.user_profile);
 
 // Variavel para receber o input do isuário
 let message = "";
+let contactList = elemento.contact_list.getHTML();
 
 elemento.form.addEventListener("submit", (evento) => {
   //Previne o default para poder capturar o valor do value do input
@@ -33,7 +34,11 @@ elemento.form.addEventListener("submit", (evento) => {
 
 // Apaga a sessão contactlist para inserir a troca de perfil de usuário (ainda não implementado)
 elemento.user_profile.addEventListener("click", () => {
-  elemento.contact_list.innerHTML = "";
+  if (elemento.contact_list.hasChildNodes()) {
+    elemento.contact_list.innerHTML = "";
+  } else {
+    elemento.contact_list.innerHTML = contactList;
+  }
 });
 
 function createMessage(mensagem) {
