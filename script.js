@@ -20,9 +20,11 @@ elemento.form.addEventListener("submit", (evento) => {
   evento.preventDefault();
   message = elemento.input.value;
 
-  createMessage(message);
-  // Limpa o valor do value após o enter
-  elemento.input.value = "";
+  if (message) {
+    createMessage(message);
+    // Limpa o valor do value após o enter
+    elemento.input.value = "";
+  }
 });
 
 function createMessage(mensagem) {
