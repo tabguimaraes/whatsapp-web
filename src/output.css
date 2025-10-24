@@ -432,6 +432,15 @@
   .bg-white {
     background-color: var(--color-white);
   }
+  .bg-\[url\(\'\.\/src\/img\/whatsapp_bg\.png\'\)\] {
+    background-image: url('./src/img/whatsapp_bg.png');
+  }
+  .bg-\[url\(\.\/img\/whatsapp_bg\.png\)\] {
+    background-image: url(./img/whatsapp_bg.png);
+  }
+  .bg-\[url\(\.\/src\/img\/whatsapp_bg\.png\)\] {
+    background-image: url(./src/img/whatsapp_bg.png);
+  }
   .p-0 {
     padding: calc(var(--spacing) * 0);
   }
