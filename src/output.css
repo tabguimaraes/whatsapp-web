@@ -242,6 +242,18 @@
   .left-\[37\%\] {
     left: 37%;
   }
+  .left-\[38\%\] {
+    left: 38%;
+  }
+  .left-\[39\%\] {
+    left: 39%;
+  }
+  .left-\[40\%\] {
+    left: 40%;
+  }
+  .left-\[41\%\] {
+    left: 41%;
+  }
   .z-10 {
     z-index: 10;
   }
@@ -342,6 +354,9 @@
   }
   .grid-cols-\[50px_auto_40px\] {
     grid-template-columns: 50px auto 40px;
+  }
+  .grid-cols-\[64px_1fr_2fr\] {
+    grid-template-columns: 64px 1fr 2fr;
   }
   .grid-cols-\[64px_auto_1fr\] {
     grid-template-columns: 64px auto 1fr;

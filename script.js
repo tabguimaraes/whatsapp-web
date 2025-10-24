@@ -10,7 +10,11 @@ const container = {
 const elemento = {
   form: document.querySelector("#formInputMessage"),
   input: document.querySelector("#inputSendMessage"),
+  contact_list: document.querySelector("#contactListSection"),
+  user_profile: document.querySelector("#userProfile"),
 };
+
+console.log(elemento.user_profile);
 
 // Variavel para receber o input do isuário
 let message = "";
@@ -25,6 +29,11 @@ elemento.form.addEventListener("submit", (evento) => {
     // Limpa o valor do value após o enter
     elemento.input.value = "";
   }
+});
+
+// Apaga a sessão contactlist para inserir a troca de perfil de usuário (ainda não implementado)
+elemento.user_profile.addEventListener("click", () => {
+  elemento.contact_list.innerHTML = "";
 });
 
 function createMessage(mensagem) {
