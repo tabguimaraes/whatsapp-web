@@ -4,6 +4,8 @@ const container = {
   messageBoard: document.querySelector("#messageBoard"),
   receivedMessages: document.querySelectorAll(".receivedMessages div p"),
   sentMessages: document.querySelectorAll(".sentMessages div p"),
+  contactList: document.querySelector("#contactListContainer"),
+  profile: document.querySelector("#profileContainer"),
 };
 
 // Variavel para os elementos do form
@@ -12,6 +14,8 @@ const elemento = {
   input: document.querySelector("#inputSendMessage"),
   contact_list: document.querySelector("#contactListSection"),
   user_profile: document.querySelector("#userProfile"),
+
+  contact_header: document.querySelector("#contactListHeader"),
 };
 
 // console.log(elemento.user_profile);
@@ -34,11 +38,13 @@ elemento.form.addEventListener("submit", (evento) => {
 
 // Apaga a sessão contactlist para inserir a troca de perfil de usuário (ainda não implementado)
 elemento.user_profile.addEventListener("click", () => {
-  if (elemento.contact_list.hasChildNodes()) {
-    elemento.contact_list.innerHTML = "";
-  } else {
-    elemento.contact_list.innerHTML = contactList;
-  }
+  container.contactList.classList.toggle("hidden");
+
+  elemento.contact_header.classList.toggle("sticky");
+  elemento.contact_header.classList.toggle("hidden");
+
+  container.profile.classList.toggle("hidden");
+  container.profile.classList.toggle("flex");
 });
 
 function createMessage(mensagem) {
