@@ -170,7 +170,7 @@ setProfile();
 
 // Função está trazendo as mensagens dos contatos de cada perfil corretamente.
 function loadContactListMessages(contacts) {
-  // console.log(contacts);
+  console.log(contacts);
   // container.contactList
 
   let containerPrincipal = document.createElement("div");
@@ -187,7 +187,7 @@ function loadContactListMessages(contacts) {
 
   let contato = document.createElement("p");
   let mensagem = document.createElement("p");
-  mensagem.className = "text-[#00000099]";
+  mensagem.className = "text-[#00000099] truncate";
 
   containerSecundario.append(contato, mensagem);
 
@@ -203,7 +203,14 @@ function loadContactListMessages(contacts) {
   containerPrincipal.append(containerSecundario, containerHoraEMensagens);
 
   contacts.forEach((item, index) => {
-    // console.log(item.name);
+    console.log(item.name);
+
+    contato.innerText = item.name;
+    mensagem.innerText = String(
+      item.messages[item.messages.length - 1].content,
+    );
+
+    container.contactList.append(containerPrincipal);
     // console.log(item.messages);
 
     // Ultima mensagem enviada / recebida
