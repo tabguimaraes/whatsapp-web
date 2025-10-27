@@ -266,12 +266,13 @@ container.change_profile.childNodes.forEach((item, index) => {
   });
 });
 
-function teste() {
-  let mensagens = contatos["whats-users"].filter((contato) => {
-    contato.id === id;
-  });
-  console.log(mensagens);
-  return mensagens;
+// Função que recebe o id e busca as mensagens. Incluir ela na função que captura o click no perfil desejado
+function getMessages(id) {
+  let usuario = contatos["whats-users"].find((contato) => contato.id === id);
+
+  console.log(usuario.contacts);
+
+  return usuario.contacts;
 }
 
-teste();
+getMessages(1);
