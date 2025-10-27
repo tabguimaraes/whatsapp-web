@@ -1,7 +1,4 @@
-// const dataJSON = require("../modulo/contatos.js");
-
 import { contatos } from "./modulo/contatos.js";
-console.log(contatos);
 
 // Containaer da tela das mensagens
 
@@ -12,6 +9,7 @@ const container = {
   contactList: document.querySelector("#contactListContainer"),
   profile: document.querySelector("#profileContainer"),
   change_profile: document.querySelector("#changeProfileContainer"),
+  main: document.querySelector("main"),
 };
 
 // Variavel para os elementos do form
@@ -26,7 +24,8 @@ const elemento = {
 
 // Variavel para receber o input do isuário
 let message = "";
-let contactList = elemento.contact_list.getHTML();
+// let contactList = elemento.contact_list.getHTML();
+// let main = container.main;
 
 elemento.form.addEventListener("submit", (evento) => {
   //Previne o default para poder capturar o valor do value do input
@@ -42,6 +41,13 @@ elemento.form.addEventListener("submit", (evento) => {
 
 // Apaga a sessão contactlist para inserir a troca de perfil de usuário (ainda não implementado)
 elemento.user_profile.addEventListener("click", () => {
+  // LImpa a main.
+
+  container.main.classList.toggle("bg-[url(./img/whatsapp_bg.png)]");
+  container.main.querySelector("header").classList.toggle("hidden");
+  container.main.querySelector("section").classList.toggle("hidden");
+  container.main.querySelector("form").classList.toggle("hidden");
+
   container.contactList.classList.toggle("hidden");
 
   elemento.contact_header.classList.toggle("sticky");
@@ -129,3 +135,30 @@ function createProfilesList(name, image) {
 contatos["whats-users"].forEach((item) => {
   createProfilesList(item.nickname, item["profile-image"]);
 });
+
+function setProfile() {
+  let changeProfile = document.querySelector("#changeProfileContainer");
+
+  changeProfile.childNodes.forEach((item, index) => {
+    item.addEventListener("click", () => {
+      let profile = contatos["whats-users"].filter(
+        (contato) => contato.id === index + 1,
+      );
+
+      document.querySelector("#nome").innerText = profile[0].account;
+
+      let phone =
+        profile[0].number.slice(0, 2) +
+        " " +
+        profile[0].number.slice(2, 7) +
+        " " +
+        profile[0].number.slice(7);
+      document.querySelector("#telefone").innerText = `+55 ${phone} `;
+
+      document.querySelector("#profileIMG").src = profile[0]["profile-image"];
+      document.querySelector("#userIMG").src = profile[0]["profile-image"];
+    });
+  });
+}
+
+setProfile();
