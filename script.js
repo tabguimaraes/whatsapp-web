@@ -55,6 +55,8 @@ elemento.user_profile.addEventListener("click", () => {
 
   container.profile.classList.toggle("hidden");
   container.profile.classList.toggle("flex");
+
+  setProfile();
 });
 
 function createMessage(mensagem) {
@@ -136,95 +138,124 @@ contatos["whats-users"].forEach((item) => {
   createProfilesList(item.nickname, item["profile-image"]);
 });
 
-function setProfile() {
-  let changeProfile = document.querySelector("#changeProfileContainer");
-  let profile;
-  let contacts = {};
+function setProfile(standart) {
+  if (standart) {
+    console.log("ok");
 
-  changeProfile.childNodes.forEach((item, index) => {
-    item.addEventListener("click", () => {
-      profile = contatos["whats-users"].filter(
-        (contato) => contato.id === index + 1,
-      );
-      contacts = profile[0].contacts;
-      document.querySelector("#nome").innerText = profile[0].account;
+    let changeProfile = document.querySelector("#changeProfileContainer");
+    let profile;
+    let contacts = {};
 
-      let phone =
-        profile[0].number.slice(0, 2) +
-        " " +
-        profile[0].number.slice(2, 7) +
-        " " +
-        profile[0].number.slice(7);
-      document.querySelector("#telefone").innerText = `+55 ${phone} `;
+    profile = contatos["whats-users"].filter((contato) => contato.id === 1);
+    contacts = profile[0].contacts;
+    document.querySelector("#nome").innerText = profile[0].account;
 
-      document.querySelector("#profileIMG").src = profile[0]["profile-image"];
-      document.querySelector("#userIMG").src = profile[0]["profile-image"];
+    let phone =
+      profile[0].number.slice(0, 2) +
+      " " +
+      profile[0].number.slice(2, 7) +
+      " " +
+      profile[0].number.slice(7);
+    document.querySelector("#telefone").innerText = `+55 ${phone} `;
 
-      loadContactListMessages(contacts);
-      return contacts;
+    document.querySelector("#profileIMG").src = profile[0]["profile-image"];
+    document.querySelector("#userIMG").src = profile[0]["profile-image"];
+
+    loadContactListMessages(contacts);
+    return contacts;
+  } else {
+    let changeProfile = document.querySelector("#changeProfileContainer");
+    let profile;
+    let contacts = {};
+
+    changeProfile.childNodes.forEach((item, index) => {
+      item.addEventListener("click", () => {
+        profile = contatos["whats-users"].filter(
+          (contato) => contato.id === index + 1,
+        );
+        contacts = profile[0].contacts;
+        document.querySelector("#nome").innerText = profile[0].account;
+
+        let phone =
+          profile[0].number.slice(0, 2) +
+          " " +
+          profile[0].number.slice(2, 7) +
+          " " +
+          profile[0].number.slice(7);
+        document.querySelector("#telefone").innerText = `+55 ${phone} `;
+
+        document.querySelector("#profileIMG").src = profile[0]["profile-image"];
+        document.querySelector("#userIMG").src = profile[0]["profile-image"];
+
+        loadContactListMessages(contacts);
+        return contacts;
+      });
     });
-  });
+  }
 }
 
-setProfile();
+setProfile("perfil1");
 
 // Função está trazendo as mensagens dos contatos de cada perfil corretamente.
 function loadContactListMessages(contacts) {
-  console.log(contacts);
-  // container.contactList
-
-  let containerPrincipal = document.createElement("div");
-  containerPrincipal.className =
-    "contactItem grid cursor-pointer grid-cols-[50px_auto_40px] gap-2 p-4";
-
-  // document.querySelector('#imgContato')
-
-  let imgContato = document.createElement("img");
-  imgContato.className = "rounded-full";
-
-  let containerSecundario = document.createElement("div");
-  containerSecundario.className = "flex flex-col";
-
-  let contato = document.createElement("p");
-  let mensagem = document.createElement("p");
-  mensagem.className = "text-[#00000099] truncate";
-
-  containerSecundario.append(contato, mensagem);
-
-  let containerHoraEMensagens = document.createElement("div");
-  containerHoraEMensagens.className = "flex flex-col *:text-end";
-
-  let horas = document.createElement("p");
-  horas.className = "text-[#1DAA61]";
-
-  let mensagens = document.createElement("p");
-  mensagens.className = "w-fit rounded-full bg-[#1DAA61] px-2 py-1 text-white";
-
-  containerPrincipal.append(containerSecundario, containerHoraEMensagens);
-
+  container.contactList.innerHTML = "";
   contacts.forEach((item, index) => {
-    console.log(item.name);
-
-    contato.innerText = item.name;
-    mensagem.innerText = String(
-      item.messages[item.messages.length - 1].content,
-    );
-
-    container.contactList.append(containerPrincipal);
-    // console.log(item.messages);
-
-    // Ultima mensagem enviada / recebida
-    console.log(item.messages[item.messages.length - 1]);
-
-    // Busca de todoas as mensagens do contato
-    item.messages.forEach((mensagem) => {
-      // console.log(mensagem);
-      console.log(mensagem.content);
-    });
+    // console.log(item.name);
 
     // console.log(item.messages.length);
-    imgContato.src = "https://i.pravatar.cc/150";
+
+    let containerPrincipal = document.createElement("div");
+    containerPrincipal.className =
+      "contactItem grid cursor-pointer grid-cols-[50px_1fr_40px] gap-2 p-4";
+
+    let imgContato = document.createElement("img");
+    imgContato.className = "rounded-full size-12";
+    imgContato.src = `https://i.pravatar.cc/${Math.floor(Math.random() * 70)}`;
+
+    let containerSecundario = document.createElement("div");
+    containerSecundario.className = "flex flex-col overflow-hidden";
+
+    let contato = document.createElement("p");
+    contato.className = "contato truncate";
+
+    let content = document.createElement("p");
+    content.className = "text-[#00000099] truncate";
+
+    containerSecundario.append(contato, content);
+
+    let containerHoraEMensagens = document.createElement("div");
+    containerHoraEMensagens.className = "flex flex-col items-end";
+
+    let horas = document.createElement("p");
+    horas.className = "text-[#1DAA61]";
+
+    let mensagens = document.createElement("p");
+    mensagens.className =
+      "size-8 flex justify-center items-center rounded-full bg-[#1DAA61] text-white";
+
+    containerHoraEMensagens.append(horas, mensagens);
+
     contato.innerText = item.name;
-    // mensagem.innerText = item.
+    content.innerText = item.messages[item.messages.length - 1].content;
+
+    horas.innerText = item.messages[item.messages.length - 1].time;
+
+    mensagens.innerText = item.messages.length;
+
+    containerPrincipal.append(
+      imgContato,
+      containerSecundario,
+      containerHoraEMensagens,
+    );
+    container.contactList.append(containerPrincipal);
+
+    // Ultima mensagem enviada / recebida
+    // console.log(item.messages[item.messages.length - 1]);
+
+    // Busca de todoas as mensagens do contato
+    // item.messages.forEach((mensagem) => {
+    //   console.log(mensagem);
+    //   // console.log(mensagem.content);
+    // });
   });
 }
