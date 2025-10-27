@@ -18,14 +18,15 @@ const elemento = {
   input: document.querySelector("#inputSendMessage"),
   contact_list: document.querySelector("#contactListSection"),
   user_profile: document.querySelector("#userProfile"),
-
   contact_header: document.querySelector("#contactListHeader"),
+  mensagens: document.querySelector("#mensagens"),
 };
 
 // Variavel para receber o input do isuário
 let message = "";
 // let contactList = elemento.contact_list.getHTML();
 // let main = container.main;
+let profile;
 
 elemento.form.addEventListener("submit", (evento) => {
   //Previne o default para poder capturar o valor do value do input
@@ -40,13 +41,11 @@ elemento.form.addEventListener("submit", (evento) => {
 });
 
 // Apaga a sessão contactlist para inserir a troca de perfil de usuário (ainda não implementado)
-elemento.user_profile.addEventListener("click", () => {
-  // LImpa a main.
-
-  container.main.classList.toggle("bg-[url(./img/whatsapp_bg.png)]");
-  container.main.querySelector("header").classList.toggle("hidden");
-  container.main.querySelector("section").classList.toggle("hidden");
-  container.main.querySelector("form").classList.toggle("hidden");
+function setContactList() {
+  container.main.classList.remove("bg-[url(./img/whatsapp_bg.png)]");
+  container.main.querySelector("header").classList.add("hidden");
+  container.main.querySelector("section").classList.add("hidden");
+  container.main.querySelector("form").classList.add("hidden");
 
   container.contactList.classList.toggle("hidden");
 
@@ -57,7 +56,10 @@ elemento.user_profile.addEventListener("click", () => {
   container.profile.classList.toggle("flex");
 
   setProfile();
-});
+}
+
+elemento.mensagens.addEventListener("click", setContactList);
+elemento.user_profile.addEventListener("click", setContactList);
 
 function createMessage(mensagem) {
   let span = document.createElement("span");
@@ -139,13 +141,11 @@ contatos["whats-users"].forEach((item) => {
 });
 
 function setProfile(standart) {
+  let changeProfile = document.querySelector("#changeProfileContainer");
+
+  let contacts;
+
   if (standart) {
-    console.log("ok");
-
-    let changeProfile = document.querySelector("#changeProfileContainer");
-    let profile;
-    let contacts = {};
-
     profile = contatos["whats-users"].filter((contato) => contato.id === 1);
     contacts = profile[0].contacts;
     document.querySelector("#nome").innerText = profile[0].account;
@@ -164,15 +164,12 @@ function setProfile(standart) {
     loadContactListMessages(contacts);
     return contacts;
   } else {
-    let changeProfile = document.querySelector("#changeProfileContainer");
-    let profile;
-    let contacts = {};
-
     changeProfile.childNodes.forEach((item, index) => {
       item.addEventListener("click", () => {
         profile = contatos["whats-users"].filter(
           (contato) => contato.id === index + 1,
         );
+
         contacts = profile[0].contacts;
         document.querySelector("#nome").innerText = profile[0].account;
 
@@ -186,9 +183,9 @@ function setProfile(standart) {
 
         document.querySelector("#profileIMG").src = profile[0]["profile-image"];
         document.querySelector("#userIMG").src = profile[0]["profile-image"];
-
+        // console.log(profile[0]);
         loadContactListMessages(contacts);
-        return contacts;
+        return (contacts, profile[0]);
       });
     });
   }
@@ -259,3 +256,22 @@ function loadContactListMessages(contacts) {
     // });
   });
 }
+
+let id;
+
+container.change_profile.childNodes.forEach((item, index) => {
+  item.addEventListener("click", () => {
+    id = index + 1;
+    // console.log(id);
+  });
+});
+
+function teste() {
+  let mensagens = contatos["whats-users"].filter((contato) => {
+    contato.id === id;
+  });
+  console.log(mensagens);
+  return mensagens;
+}
+
+teste();
