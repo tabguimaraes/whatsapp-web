@@ -1,3 +1,8 @@
+// const dataJSON = require("../modulo/contatos.js");
+
+import { contatos } from "./modulo/contatos.js";
+console.log(contatos);
+
 // Containaer da tela das mensagens
 
 const container = {
@@ -6,6 +11,7 @@ const container = {
   sentMessages: document.querySelectorAll(".sentMessages div p"),
   contactList: document.querySelector("#contactListContainer"),
   profile: document.querySelector("#profileContainer"),
+  change_profile: document.querySelector("#changeProfileContainer"),
 };
 
 // Variavel para os elementos do form
@@ -17,8 +23,6 @@ const elemento = {
 
   contact_header: document.querySelector("#contactListHeader"),
 };
-
-// console.log(elemento.user_profile);
 
 // Variavel para receber o input do isuário
 let message = "";
@@ -103,3 +107,25 @@ function createContainerSendMessages(mensagem) {
 function insertMessage(mensagem) {
   container.messageBoard.appendChild(mensagem);
 }
+
+function createProfilesList(name, image) {
+  const profileContainer = document.createElement("div");
+  profileContainer.className =
+    "flex flex-col items-center transition group-hover:opacity-50 hover:scale-125 hover:cursor-pointer hover:!opacity-100";
+
+  const profileIMG = document.createElement("img");
+  profileIMG.className = "size-10 rounded-full shadow-md shadow-gray-400";
+  profileIMG.src = image;
+
+  const nome = document.createElement("p");
+  nome.innerText = name;
+
+  profileContainer.appendChild(profileIMG);
+  profileContainer.appendChild(nome);
+
+  container.change_profile.appendChild(profileContainer);
+}
+
+contatos["whats-users"].forEach((item) => {
+  createProfilesList(item.nickname, item["profile-image"]);
+});

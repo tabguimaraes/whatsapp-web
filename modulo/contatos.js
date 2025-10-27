@@ -1,4 +1,4 @@
-const contatos = {
+export const contatos = {
   "whats-users": [
     {
       id: 1,
@@ -8,7 +8,7 @@ const contatos = {
         start: "2015-08-23",
         end: "null",
       },
-      "profile-image": "11987876567.png",
+      "profile-image": "https://i.pravatar.cc/150?img=3",
       number: "11987876567",
       background: "#fccc5b",
       contacts: [
@@ -30,12 +30,14 @@ const contatos = {
             },
             {
               sender: "me",
-              content: "Great to hear that. Do you have any plans for the weekend?",
+              content:
+                "Great to hear that. Do you have any plans for the weekend?",
               time: "14:30",
             },
             {
               sender: "Ana Maria",
-              content: "Not yet. I'm thinking about going to the beach. What about you?",
+              content:
+                "Not yet. I'm thinking about going to the beach. What about you?",
               time: "14:35",
             },
           ],
@@ -58,7 +60,8 @@ const contatos = {
             },
             {
               sender: "me",
-              content: "I'm doing well. By the way, have you seen the latest designs for the new project?",
+              content:
+                "I'm doing well. By the way, have you seen the latest designs for the new project?",
               time: "09:10",
             },
             {
@@ -86,12 +89,14 @@ const contatos = {
             },
             {
               sender: "me",
-              content: "I'm doing fine. By the way, do you have any updates on the API development?",
+              content:
+                "I'm doing fine. By the way, do you have any updates on the API development?",
               time: "13:10",
             },
             {
               sender: "Mark Johnson",
-              content: "Yes, we're making good progress. We should be able to deliver it on schedule.",
+              content:
+                "Yes, we're making good progress. We should be able to deliver it on schedule.",
               time: "13:15",
             },
           ],
@@ -142,7 +147,8 @@ const contatos = {
             },
             {
               sender: "John Doe",
-              content: "Estou bem também! Viu aquela nova ferramenta de design?",
+              content:
+                "Estou bem também! Viu aquela nova ferramenta de design?",
               time: "11:10",
             },
             {
@@ -165,7 +171,8 @@ const contatos = {
             },
             {
               sender: "me",
-              content: "Está indo bem, estamos quase terminando a fase de testes!",
+              content:
+                "Está indo bem, estamos quase terminando a fase de testes!",
               time: "12:05",
             },
             {
@@ -198,7 +205,8 @@ const contatos = {
             },
             {
               sender: "Max Kellerman",
-              content: "Bom trabalho, fico feliz em ver vocês tentando coisas novas!",
+              content:
+                "Bom trabalho, fico feliz em ver vocês tentando coisas novas!",
               time: "13:10",
             },
           ],
@@ -213,7 +221,7 @@ const contatos = {
         start: "2020-02-13",
         end: "null",
       },
-      "profile-image": "11966578996.png",
+      "profile-image": "https://i.pravatar.cc/150?img=11",
       number: "11966578996",
       background: "#fccc5b",
       contacts: [
@@ -235,12 +243,14 @@ const contatos = {
             },
             {
               sender: "me",
-              content: "Great to hear that. Do you have any plans for the weekend?",
+              content:
+                "Great to hear that. Do you have any plans for the weekend?",
               time: "14:30",
             },
             {
               sender: "José Maria da Silva",
-              content: "Not yet. I'm thinking about going to the beach. What about you?",
+              content:
+                "Not yet. I'm thinking about going to the beach. What about you?",
               time: "14:35",
             },
           ],
@@ -263,7 +273,8 @@ const contatos = {
             },
             {
               sender: "me",
-              content: "I'm doing well. By the way, have you seen the latest designs for the new project?",
+              content:
+                "I'm doing well. By the way, have you seen the latest designs for the new project?",
               time: "09:10",
             },
             {
@@ -291,12 +302,14 @@ const contatos = {
             },
             {
               sender: "me",
-              content: "I'm doing fine. By the way, do you have any updates on the API development?",
+              content:
+                "I'm doing fine. By the way, do you have any updates on the API development?",
               time: "13:10",
             },
             {
               sender: "George Mikael",
-              content: "Yes, we're making good progress. We should be able to deliver it on schedule.",
+              content:
+                "Yes, we're making good progress. We should be able to deliver it on schedule.",
               time: "13:15",
             },
           ],
@@ -347,7 +360,8 @@ const contatos = {
             },
             {
               sender: "Jonny Devited",
-              content: "Estou bem também! Viu aquela nova ferramenta de design?",
+              content:
+                "Estou bem também! Viu aquela nova ferramenta de design?",
               time: "11:10",
             },
             {
@@ -370,7 +384,8 @@ const contatos = {
             },
             {
               sender: "me",
-              content: "Está indo bem, estamos quase terminando a fase de testes!",
+              content:
+                "Está indo bem, estamos quase terminando a fase de testes!",
               time: "12:05",
             },
             {
@@ -403,7 +418,8 @@ const contatos = {
             },
             {
               sender: "Nilsen Silva",
-              content: "Bom trabalho, fico feliz em ver vocês tentando coisas novas!",
+              content:
+                "Bom trabalho, fico feliz em ver vocês tentando coisas novas!",
               time: "13:10",
             },
           ],
@@ -418,7 +434,7 @@ const contatos = {
         start: "2017-05-11",
         end: "null",
       },
-      "profile-image": "11955577796.png",
+      "profile-image": "https://i.pravatar.cc/150?img=5",
       number: "11955577796",
       background: "#cc5bfc",
       contacts: [
@@ -468,7 +484,8 @@ const contatos = {
             },
             {
               sender: "Jonny Devited",
-              content: "Estou bem também! Viu aquela nova ferramenta de design?",
+              content:
+                "Estou bem também! Viu aquela nova ferramenta de design?",
               time: "11:10",
             },
             {
@@ -491,7 +508,8 @@ const contatos = {
             },
             {
               sender: "me",
-              content: "Está indo bem, estamos quase terminando a fase de testes!",
+              content:
+                "Está indo bem, estamos quase terminando a fase de testes!",
               time: "12:05",
             },
             {
@@ -524,7 +542,8 @@ const contatos = {
             },
             {
               sender: "Catarina Sousa",
-              content: "Bom trabalho, fico feliz em ver vocês tentando coisas novas!",
+              content:
+                "Bom trabalho, fico feliz em ver vocês tentando coisas novas!",
               time: "13:10",
             },
           ],
@@ -539,7 +558,7 @@ const contatos = {
         start: "2023-03-11",
         end: "null",
       },
-      "profile-image": "1194457796.png",
+      "profile-image": "https://i.pravatar.cc/150?img=7",
       number: "1194457796",
       background: "#c00bfc",
       contacts: [
@@ -575,6 +594,6 @@ const contatos = {
     },
   ],
 };
-module.exports = {
-  contatos,
-};
+// module.exports = {
+//   contatos,
+// };

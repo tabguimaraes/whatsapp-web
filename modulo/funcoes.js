@@ -6,13 +6,20 @@ const MESSAGE_ERROR = {
   development: "Tiago Guimarães",
 };
 
-const message = { status: true, status_code: 200, development: "Tiago Guimarães", data: [] };
+const message = {
+  status: true,
+  status_code: 200,
+  development: "Tiago Guimarães",
+  data: [],
+};
 
 let usuario;
 
 // Função para selecionar o usuário pelo número do telefone e salvar os dados dentro da variável 'usuário'
 function selecionarUsuarioPeloTelefone(userNumber) {
-  usuario = dataJSON.contatos["whats-users"].find((item) => item.number === userNumber);
+  usuario = dataJSON.contatos["whats-users"].find(
+    (item) => item.number === userNumber,
+  );
   return usuario;
 }
 
@@ -27,6 +34,8 @@ function listarTodosUsuarios() {
     return MESSAGE_ERROR;
   }
 }
+
+console.log(listarTodosUsuarios());
 
 function listarDadosDaConta(userNumber) {
   try {
@@ -54,7 +63,11 @@ function listarDadosDeContato(userNumber) {
     selecionarUsuarioPeloTelefone(userNumber);
 
     usuario.contacts.forEach((item) => {
-      message.data.push({ name: item.name, description: item.description, image: item.image });
+      message.data.push({
+        name: item.name,
+        description: item.description,
+        image: item.image,
+      });
     });
 
     return message;
@@ -121,7 +134,9 @@ function pesquisarPorPalavraChave(userNumber, query) {
     let resultados = [];
 
     usuario.contacts.forEach((contato) => {
-      let msgsEncontradas = contato.messages.filter((msg) => msg.content.toLowerCase().includes(query.toLowerCase()));
+      let msgsEncontradas = contato.messages.filter((msg) =>
+        msg.content.toLowerCase().includes(query.toLowerCase()),
+      );
 
       if (msgsEncontradas.length > 0) {
         resultados.push({

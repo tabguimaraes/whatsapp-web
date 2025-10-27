@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="./script.js" defer></script>
+    <script src="./script.js" defer type="module"></script>
     <link rel="stylesheet" href="./src/output.css" />
     <title>WhatsApp Web</title>
   </head>
@@ -306,48 +306,10 @@
           </div>
         </div>
         <h2 class="text-xl">Trocar de Perfil</h2>
-        <div class="group flex justify-center gap-5">
-          <div
-            class="flex flex-col items-center transition group-hover:opacity-50 hover:scale-125 hover:cursor-pointer hover:!opacity-100"
-          >
-            <img
-              class="size-10 rounded-full shadow-md shadow-gray-400"
-              src="https://i.pravatar.cc/150?img=3"
-              alt=""
-            />
-            <p>perfil 1</p>
-          </div>
-          <div
-            class="flex flex-col items-center transition group-hover:opacity-50 hover:scale-125 hover:cursor-pointer hover:!opacity-100"
-          >
-            <img
-              class="size-10 rounded-full shadow-md shadow-gray-400"
-              src="https://i.pravatar.cc/150?img=11"
-              alt=""
-            />
-            <p>perfil 2</p>
-          </div>
-          <div
-            class="flex flex-col items-center transition group-hover:opacity-50 hover:scale-125 hover:cursor-pointer hover:!opacity-100"
-          >
-            <img
-              class="size-10 rounded-full shadow-md shadow-gray-400"
-              src="https://i.pravatar.cc/150?img=5"
-              alt=""
-            />
-            <p>perfil 3</p>
-          </div>
-          <div
-            class="flex flex-col items-center transition group-hover:opacity-50 hover:scale-125 hover:cursor-pointer hover:!opacity-100"
-          >
-            <img
-              class="size-10 rounded-full shadow-md shadow-gray-400"
-              src="https://i.pravatar.cc/150?img=7"
-              alt=""
-            />
-            <p>perfil 4</p>
-          </div>
-        </div>
+        <div
+          class="group justify flex justify-evenly gap-5"
+          id="changeProfileContainer"
+        ></div>
       </div>
       <header class="sticky p-5 pt-0" id="contactListHeader">
         <div class="flex justify-between" id="headerContainer">
