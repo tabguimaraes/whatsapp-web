@@ -8,34 +8,6 @@ import {
 
 let profile;
 
-// Containaer da tela das mensagens
-
-// const container = {
-//   messageBoard: document.querySelector("#messageBoard"),
-//   receivedMessages: document.querySelectorAll(".receivedMessages div p"),
-//   sentMessages: document.querySelectorAll(".sentMessages div p"),
-//   contactList: document.querySelector("#contactListContainer"),
-//   profile: document.querySelector("#profileContainer"),
-//   change_profile: document.querySelector("#changeProfileContainer"),
-//   main: document.querySelector("main"),
-// };
-
-// Variavel para os elementos do form
-// const elemento = {
-//   form: document.querySelector("#formInputMessage"),
-//   input: document.querySelector("#inputSendMessage"),
-//   contact_list: document.querySelector("#contactListSection"),
-//   user_profile: document.querySelector("#userProfile"),
-//   contact_header: document.querySelector("#contactListHeader"),
-//   mensagens: document.querySelector("#mensagens"),
-// };
-
-// Variavel para receber o input do isuário
-// let message = "";
-// let contactList = elemento.contact_list.getHTML();
-// let main = container.main;
-// let profile;
-
 messageBoard.form.addEventListener("submit", (evento) => {
   evento.preventDefault();
   let userInput = messageBoard.input.value;
@@ -49,6 +21,10 @@ messageBoard.form.addEventListener("submit", (evento) => {
 contactList.form.addEventListener("submit", (evento) => {
   evento.preventDefault();
 });
+
+aside.user_profile_button.addEventListener("click", setContactList);
+
+aside.message_button.addEventListener("click", setContactList);
 
 // Construtor da hora para o método POST da msg
 function getHour() {
@@ -107,12 +83,9 @@ function setContactList() {
   messageBoard.main.querySelector("form").classList.add("hidden");
 
   contactList.message_header.classList.toggle("hidden");
+  contactList.message_header.classList.toggle("sticky");
 
-  // elemento.contact_header.classList.toggle("sticky");
   userProfile.container.classList.toggle("hidden");
-
-  // container.profile.classList.toggle("hidden");
-  // container.profile.classList.toggle("flex");
 
   setProfile();
 }
