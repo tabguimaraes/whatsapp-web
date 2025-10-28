@@ -8,24 +8,23 @@
     <title>WhatsApp Web</title>
   </head>
   <body class="box-border grid h-dvh grid-cols-[64px_1fr_2fr] bg-[#f7f5f3] p-0">
-    <section
+    <aside
       class="sticky bottom-0 flex h-dvh flex-col justify-between p-1.5 pt-0 *:transition hover:cursor-pointer"
-      id="sideBar"
+      id="side-bar"
     >
       <div
         class="flex flex-col items-center justify-center gap-5 py-5"
-        id="sideBarTop"
+        id="side-bar-top"
       >
         <div
           class="overflow-hidden p-1.5 hover:cursor-pointer hover:rounded-full hover:bg-white"
-          id="mensagens"
+          id="message-button"
         >
           <svg
             viewBox="0 0 24 24"
             height="24"
             width="24"
             preserveAspectRatio="xMidYMid meet"
-            class=""
             fill="none"
           >
             <title>chat-filled-refreshed</title>
@@ -45,7 +44,6 @@
             height="24"
             width="24"
             preserveAspectRatio="xMidYMid meet"
-            class=""
             fill="none"
           >
             <title>status-refreshed</title>
@@ -77,7 +75,6 @@
             height="24"
             width="24"
             preserveAspectRatio="xMidYMid meet"
-            class=""
             fill="none"
           >
             <title>newsletter-outline</title>
@@ -107,7 +104,6 @@
             height="32"
             width="32"
             preserveAspectRatio="xMidYMid meet"
-            class=""
             fill="none"
           >
             <title>community-refreshed-32</title>
@@ -161,7 +157,7 @@
       </div>
       <div
         class="flex flex-col items-center justify-between gap-5"
-        id="sideBarBottom"
+        id="side-bar-bottom"
       >
         <div
           class="overflow-hidden p-1.5 hover:cursor-pointer hover:rounded-full hover:bg-white"
@@ -171,7 +167,6 @@
             height="24"
             width="24"
             preserveAspectRatio="xMidYMid meet"
-            class=""
             fill="none"
           >
             <title>settings-refreshed</title>
@@ -189,10 +184,10 @@
         </div>
         <div
           class="size-10 overflow-hidden rounded-full p-1.5 *:rounded-full hover:cursor-pointer hover:bg-white"
-          id="userProfile"
+          id="user-profile-button"
         >
           <img
-            id="userIMG"
+            id="user-avatar-img"
             alt=""
             draggable="false"
             class="x1n2onr6 x1lliihq xh8yej3 x5yr21d x6ikm8r x10wlt62 x1c9tyrk xeusxvb x1pahc9y x1ertn4p xl1xv1r x115dhu7 x17vty23 x1hc1fzr x4u6w88 x1g40iwv _ao3e"
@@ -202,12 +197,12 @@
           />
         </div>
       </div>
-    </section>
+    </aside>
     <section
-      class="flex h-full flex-col gap-6 overflow-auto border-r-1 border-gray-400 bg-white p-5"
-      id="contactListSection"
+      class="flex h-full flex-col gap-6 overflow-auto border-r-[1px] border-gray-300 bg-white p-5"
+      id="contact-list-section"
     >
-      <div class="hidden flex-col gap-6" id="profileContainer">
+      <div class="hidden flex-col gap-6" id="profile-section">
         <h1 class="text-2xl font-medium">Perfil</h1>
 
         <div
@@ -217,7 +212,7 @@
             class="size-36 place-self-center rounded-full opacity-100 shadow-lg shadow-gray-400 hover:cursor-pointer hover:opacity-50"
             src="https://i.pravatar.cc/150?img=3"
             alt=""
-            id="profileIMG"
+            id="profile-img"
           />
           <span
             class="absolute top-[40%] left-2 hidden text-sm group-hover:block hover:cursor-pointer"
@@ -227,7 +222,7 @@
 
         <div class="flex flex-col gap-5">
           <p>Nome</p>
-          <p class="flex justify-between text-xl font-light" id="nome">
+          <p class="flex justify-between text-xl font-light" id="user-name">
             John Doe
             <span>
               <svg
@@ -247,9 +242,9 @@
             </span>
           </p>
         </div>
-        <div class="flex flex-col gap-5" id="recado">
+        <div class="flex flex-col gap-5">
           <p>Recado</p>
-          <p class="flex justify-between text-xl font-light">
+          <p class="flex justify-between text-xl font-light" id="user-status">
             Disponível
             <span>
               <svg
@@ -286,10 +281,9 @@
                     <title>phone</title>
                     <path
                       d="M19.23 15.26l-2.54-.29c-.61-.07-1.21.14-1.64.57l-1.84 1.84c-2.83-1.44-5.15-3.75-6.59-6.59l1.85-1.85c.43-.43.64-1.03.57-1.64l-.29-2.52c-.12-1.01-.97-1.77-1.99-1.77H5.03c-1.13 0-2.07.94-2 2.07.53 8.54 7.36 15.36 15.89 15.89 1.13.07 2.07-.87 2.07-2v-1.73c.01-1.01-.75-1.86-1.76-1.98z"
-                      class=""
                     ></path>
                   </svg> </span
-                ><span id="telefone">+55 11-555-2555</span>
+                ><span id="user-number">+55 11-555-2555</span>
               </p>
               <svg
                 viewBox="0 0 24 24"
@@ -311,18 +305,17 @@
         <h2 class="text-xl">Trocar de Perfil</h2>
         <div
           class="group justify flex justify-evenly gap-5"
-          id="changeProfileContainer"
+          id="profiles-list"
         ></div>
       </div>
-      <header class="sticky p-5 pt-0" id="contactListHeader">
-        <div class="flex justify-between" id="headerContainer">
+      <header class="sticky p-5 pt-0" id="message-header-section">
+        <div class="flex justify-between" id="message-header-container">
           <div id="logo">
             <svg
               viewBox="0 0 104 28"
               height="28"
               width="104"
               preserveAspectRatio="xMidYMid meet"
-              class=""
               fill="none"
             >
               <title>wa-wordmark-refreshed</title>
@@ -335,15 +328,14 @@
           </div>
           <div
             class="flex gap-5 *:rounded-full *:p-2 *:hover:bg-[#c2bdb826]"
-            id="containerMessagesOptions"
+            id="message-header-options"
           >
-            <div class="cursor-pointer" id="newMessage">
+            <div class="cursor-pointer" id="new-message">
               <svg
                 viewBox="0 0 24 24"
                 height="24"
                 width="24"
                 preserveAspectRatio="xMidYMid meet"
-                class=""
                 fill="none"
               >
                 <title>new-chat-outline</title>
@@ -365,7 +357,6 @@
                 height="24"
                 width="24"
                 preserveAspectRatio="xMidYMid meet"
-                class=""
                 fill="none"
               >
                 <title>more-refreshed</title>
@@ -377,15 +368,16 @@
             </div>
           </div>
         </div>
-        <form class="pt-5" action="">
+        <form class="pt-5" action="" id="form-contact-list-header">
           <input
+            id="input-contact-list-header"
             class="w-full rounded-3xl bg-[#c2bdb826] p-3 focus-visible:outline-[#1DAA61]"
             type="text"
             placeholder="Pesquisar ou começar uma nova conversa"
           />
           <div
             class="flex gap-2 pt-2 *:rounded-3xl *:px-3 *:py-1.5 *:hover:cursor-pointer"
-            id="containerButtons"
+            id="buttons-contact-list-header"
           >
             <button class="bg-[#d9fdd3]">Tudo</button
             ><button class="hover:bg-[#c2bdb826]">Não lidas</button
@@ -397,7 +389,7 @@
 
       <div
         class="overflow-auto *:rounded-2xl *:hover:bg-[#c2bdb826]"
-        id="contactListContainer"
+        id="contact-list-container"
       ></div>
     </section>
     <main
@@ -406,15 +398,18 @@
       <header
         class="sticky top-0 z-10 flex items-center justify-between bg-white p-5 *:hover:cursor-pointer"
       >
-        <div class="flex items-center gap-3 text-xl" id="contatoHeaderList">
+        <div
+          class="flex items-center gap-3 text-xl"
+          id="contact-name-img-container"
+        >
           <img
             class="size-14 rounded-full"
             src="https://media-gru2-2.cdn.whatsapp.net/v/t61.24694-24/516863794_4484689595091928_415594490740194143_n.jpg?stp=dst-jpg_s96x96_tt6&amp;ccb=11-4&amp;oh=01_Q5Aa2wHLRYmvtXkGdGlht4hu_JgAg-c41rgZnEOUboS4Xzx3Rg&amp;oe=69033698&amp;_nc_sid=5e03e0&amp;_nc_cat=103"
             alt=""
           />
-          <p class="contato">João Carlos</p>
+          <p class="contact-name">João Carlos</p>
         </div>
-        <div class="flex gap-5" id="opcoesContato">
+        <div class="flex gap-5" id="contact-header-options">
           <div class="flex items-center gap-2">
             <div
               class="flex items-center gap-2 rounded-full p-3 hover:bg-[#f7f5f3]"
@@ -424,7 +419,6 @@
                 height="24"
                 width="24"
                 preserveAspectRatio="xMidYMid meet"
-                class=""
                 fill="none"
               >
                 <title>video-call-refreshed</title>
@@ -437,7 +431,6 @@
                 viewBox="0 0 20 20"
                 height="20"
                 preserveAspectRatio="xMidYMid meet"
-                class=""
                 fill="none"
               >
                 <title>ic-chevron-down-menu</title>
@@ -452,7 +445,6 @@
               height="24"
               width="24"
               preserveAspectRatio="xMidYMid meet"
-              class=""
               fill=""
             >
               <title>more-refreshed</title>
@@ -466,10 +458,10 @@
       </header>
       <section
         class="grid flex-1 grid-flow-col auto-rows-min grid-cols-4 content-end gap-4 overflow-y-auto px-14 pt-5"
-        id="messageBoard"
+        id="message-board-container"
       >
         <div
-          class="receivedMessages col-start-1 col-end-4 w-fit rounded-lg bg-white"
+          class="received-message-container col-start-1 col-end-4 w-fit rounded-lg bg-white"
           id=""
         >
           <div class="b place-self-start px-5 py-1">
@@ -480,7 +472,7 @@
           </div>
         </div>
         <div
-          class="sentMessages col-start-2 col-end-5 overflow-hidden rounded-lg *:bg-[#d9fdd3]"
+          class="sent-message-container col-start-2 col-end-5 overflow-hidden rounded-lg *:bg-[#d9fdd3]"
           id=""
         >
           <div class="w-fit place-self-end px-5 py-1">
@@ -488,7 +480,7 @@
           </div>
         </div>
         <div
-          class="receivedMessages col-start-1 col-end-4 w-fit rounded-lg bg-white"
+          class="received-message-container col-start-1 col-end-4 w-fit rounded-lg bg-white"
           id=""
         >
           <div class="place-self-start px-5 py-1">
@@ -499,7 +491,7 @@
           </div>
         </div>
         <div
-          class="receivedMessages col-start-1 col-end-4 w-fit rounded-lg bg-white"
+          class="received-message-container col-start-1 col-end-4 w-fit rounded-lg bg-white"
           id=""
         >
           <div class="place-self-start px-5 py-1">
@@ -509,7 +501,7 @@
           </div>
         </div>
         <div
-          class="sentMessages col-start-2 col-end-5 overflow-hidden rounded-lg *:bg-[#d9fdd3]"
+          class="sent-message-container col-start-2 col-end-5 overflow-hidden rounded-lg *:bg-[#d9fdd3]"
           id=""
         >
           <div class="w-fit place-self-end px-5 py-1">
@@ -519,7 +511,7 @@
           </div>
         </div>
         <div
-          class="sentMessages col-start-2 col-end-5 overflow-hidden rounded-lg *:bg-[#d9fdd3]"
+          class="sent-message-container col-start-2 col-end-5 overflow-hidden rounded-lg *:bg-[#d9fdd3]"
           id=""
         >
           <div class="w-fit place-self-end px-5 py-1">
@@ -535,7 +527,7 @@
       <form
         class="relative bottom-0 flex-shrink-0 p-5"
         action=""
-        id="formInputMessage"
+        id="form-send-message"
       >
         <svg
           viewBox="0 0 24 24"
@@ -581,7 +573,7 @@
           alt=""
         />
         <input
-          id="inputSendMessage"
+          id="input-send-message"
           class="w-full rounded-full bg-white p-3 pl-22 focus-visible:outline-0"
           type="text"
           placeholder="Digite uma mensagem"
