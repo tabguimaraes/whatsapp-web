@@ -281,111 +281,118 @@
           </div>
         </form>
       </header>
-      <div class="hidden flex-col gap-6" id="user-profile-section">
-        <h1 class="text-2xl font-medium">Perfil</h1>
+      <div
+        class="hidden h-dvh flex-col justify-between gap-6"
+        id="user-profile-section"
+      >
+        <div class="flex-col gap-6">
+          <h1 class="text-2xl font-medium">Perfil</h1>
 
-        <div
-          class="group relative size-36 place-self-center rounded-full bg-black text-white"
-        >
-          <img
-            class="size-36 place-self-center rounded-full opacity-100 shadow-lg shadow-gray-400 hover:cursor-pointer hover:opacity-50"
-            src="https://i.pravatar.cc/150?img=3"
-            alt=""
-            id="profile-img"
-          />
-          <span
-            class="absolute top-[40%] left-2 hidden text-sm group-hover:block hover:cursor-pointer"
-            >Mudar foto de perfil</span
+          <div
+            class="group relative size-36 place-self-center rounded-full bg-black text-white"
           >
-        </div>
-
-        <div class="flex flex-col gap-5">
-          <p>Nome</p>
-          <p class="flex justify-between text-xl font-light" id="user-name">
-            John Doe
-            <span>
-              <svg
-                viewBox="0 0 24 24"
-                height="24"
-                width="24"
-                preserveAspectRatio="xMidYMid meet"
-                class="hover:cursor-pointer"
-                fill="none"
-              >
-                <title>pencil-refreshed</title>
-                <path
-                  d="M5 18.9999H6.4L16.2 9.22488L14.775 7.79988L5 17.5999V18.9999ZM4 20.9999C3.71667 20.9999 3.47917 20.904 3.2875 20.7124C3.09583 20.5207 3 20.2832 3 19.9999V17.5749C3 17.3082 3.05 17.054 3.15 16.8124C3.25 16.5707 3.39167 16.3582 3.575 16.1749L16.2 3.57488C16.3833 3.39154 16.6 3.24988 16.85 3.14988C17.1 3.04988 17.3583 2.99988 17.625 2.99988C17.8917 2.99988 18.1458 3.04988 18.3875 3.14988C18.6292 3.24988 18.85 3.39988 19.05 3.59988L20.425 4.99988C20.625 5.18321 20.7708 5.39571 20.8625 5.63738C20.9542 5.87904 21 6.13321 21 6.39988C21 6.64988 20.9542 6.89988 20.8625 7.14988C20.7708 7.39988 20.625 7.62488 20.425 7.82488L7.825 20.4249C7.64167 20.6082 7.42917 20.7499 7.1875 20.8499C6.94583 20.9499 6.69167 20.9999 6.425 20.9999H4Z"
-                  fill="currentColor"
-                ></path>
-              </svg>
-            </span>
-          </p>
-        </div>
-        <div class="flex flex-col gap-5">
-          <p>Recado</p>
-          <p class="flex justify-between text-xl font-light" id="user-status">
-            Disponível
-            <span>
-              <svg
-                viewBox="0 0 24 24"
-                height="24"
-                width="24"
-                preserveAspectRatio="xMidYMid meet"
-                class="hover:cursor-pointer"
-                fill="none"
-              >
-                <title>pencil-refreshed</title>
-                <path
-                  d="M5 18.9999H6.4L16.2 9.22488L14.775 7.79988L5 17.5999V18.9999ZM4 20.9999C3.71667 20.9999 3.47917 20.904 3.2875 20.7124C3.09583 20.5207 3 20.2832 3 19.9999V17.5749C3 17.3082 3.05 17.054 3.15 16.8124C3.25 16.5707 3.39167 16.3582 3.575 16.1749L16.2 3.57488C16.3833 3.39154 16.6 3.24988 16.85 3.14988C17.1 3.04988 17.3583 2.99988 17.625 2.99988C17.8917 2.99988 18.1458 3.04988 18.3875 3.14988C18.6292 3.24988 18.85 3.39988 19.05 3.59988L20.425 4.99988C20.625 5.18321 20.7708 5.39571 20.8625 5.63738C20.9542 5.87904 21 6.13321 21 6.39988C21 6.64988 20.9542 6.89988 20.8625 7.14988C20.7708 7.39988 20.625 7.62488 20.425 7.82488L7.825 20.4249C7.64167 20.6082 7.42917 20.7499 7.1875 20.8499C6.94583 20.9499 6.69167 20.9999 6.425 20.9999H4Z"
-                  fill="currentColor"
-                ></path>
-              </svg>
-            </span>
-          </p>
-          <p>Telefone</p>
-          <div>
-            <div
-              class="flex items-center justify-between gap-5 text-xl font-light"
+            <img
+              class="size-36 place-self-center rounded-full opacity-100 shadow-lg shadow-gray-400 hover:cursor-pointer hover:opacity-50"
+              src="https://i.pravatar.cc/150?img=3"
+              alt=""
+              id="profile-img"
+            />
+            <span
+              class="absolute top-[40%] left-2 hidden text-sm group-hover:block hover:cursor-pointer"
+              >Mudar foto de perfil</span
             >
-              <p class="flex items-center gap-5">
-                <span>
-                  <svg
-                    viewBox="0 0 24 24"
-                    height="24"
-                    width="24"
-                    preserveAspectRatio="xMidYMid meet"
-                    class="cursor-pointer"
+          </div>
+
+          <div class="flex flex-col gap-5">
+            <p>Nome</p>
+            <p class="flex justify-between text-xl font-light" id="user-name">
+              John Doe
+              <span>
+                <svg
+                  viewBox="0 0 24 24"
+                  height="24"
+                  width="24"
+                  preserveAspectRatio="xMidYMid meet"
+                  class="hover:cursor-pointer"
+                  fill="none"
+                >
+                  <title>pencil-refreshed</title>
+                  <path
+                    d="M5 18.9999H6.4L16.2 9.22488L14.775 7.79988L5 17.5999V18.9999ZM4 20.9999C3.71667 20.9999 3.47917 20.904 3.2875 20.7124C3.09583 20.5207 3 20.2832 3 19.9999V17.5749C3 17.3082 3.05 17.054 3.15 16.8124C3.25 16.5707 3.39167 16.3582 3.575 16.1749L16.2 3.57488C16.3833 3.39154 16.6 3.24988 16.85 3.14988C17.1 3.04988 17.3583 2.99988 17.625 2.99988C17.8917 2.99988 18.1458 3.04988 18.3875 3.14988C18.6292 3.24988 18.85 3.39988 19.05 3.59988L20.425 4.99988C20.625 5.18321 20.7708 5.39571 20.8625 5.63738C20.9542 5.87904 21 6.13321 21 6.39988C21 6.64988 20.9542 6.89988 20.8625 7.14988C20.7708 7.39988 20.625 7.62488 20.425 7.82488L7.825 20.4249C7.64167 20.6082 7.42917 20.7499 7.1875 20.8499C6.94583 20.9499 6.69167 20.9999 6.425 20.9999H4Z"
                     fill="currentColor"
-                  >
-                    <title>phone</title>
-                    <path
-                      d="M19.23 15.26l-2.54-.29c-.61-.07-1.21.14-1.64.57l-1.84 1.84c-2.83-1.44-5.15-3.75-6.59-6.59l1.85-1.85c.43-.43.64-1.03.57-1.64l-.29-2.52c-.12-1.01-.97-1.77-1.99-1.77H5.03c-1.13 0-2.07.94-2 2.07.53 8.54 7.36 15.36 15.89 15.89 1.13.07 2.07-.87 2.07-2v-1.73c.01-1.01-.75-1.86-1.76-1.98z"
-                    ></path>
-                  </svg> </span
-                ><span id="user-number">+55 11-555-2555</span>
-              </p>
-              <svg
-                viewBox="0 0 24 24"
-                height="24"
-                width="24"
-                preserveAspectRatio="xMidYMid meet"
-                class="hover:cursor-pointer"
-                fill="none"
+                  ></path>
+                </svg>
+              </span>
+            </p>
+          </div>
+          <div class="flex flex-col gap-5">
+            <p>Recado</p>
+            <p class="flex justify-between text-xl font-light" id="user-status">
+              Disponível
+              <span>
+                <svg
+                  viewBox="0 0 24 24"
+                  height="24"
+                  width="24"
+                  preserveAspectRatio="xMidYMid meet"
+                  class="hover:cursor-pointer"
+                  fill="none"
+                >
+                  <title>pencil-refreshed</title>
+                  <path
+                    d="M5 18.9999H6.4L16.2 9.22488L14.775 7.79988L5 17.5999V18.9999ZM4 20.9999C3.71667 20.9999 3.47917 20.904 3.2875 20.7124C3.09583 20.5207 3 20.2832 3 19.9999V17.5749C3 17.3082 3.05 17.054 3.15 16.8124C3.25 16.5707 3.39167 16.3582 3.575 16.1749L16.2 3.57488C16.3833 3.39154 16.6 3.24988 16.85 3.14988C17.1 3.04988 17.3583 2.99988 17.625 2.99988C17.8917 2.99988 18.1458 3.04988 18.3875 3.14988C18.6292 3.24988 18.85 3.39988 19.05 3.59988L20.425 4.99988C20.625 5.18321 20.7708 5.39571 20.8625 5.63738C20.9542 5.87904 21 6.13321 21 6.39988C21 6.64988 20.9542 6.89988 20.8625 7.14988C20.7708 7.39988 20.625 7.62488 20.425 7.82488L7.825 20.4249C7.64167 20.6082 7.42917 20.7499 7.1875 20.8499C6.94583 20.9499 6.69167 20.9999 6.425 20.9999H4Z"
+                    fill="currentColor"
+                  ></path>
+                </svg>
+              </span>
+            </p>
+            <p>Telefone</p>
+            <div>
+              <div
+                class="flex items-center justify-between gap-5 text-xl font-light"
               >
-                <title>copy-refreshed</title>
-                <path
-                  d="M9 18C8.45 18 7.97917 17.8042 7.5875 17.4125C7.19583 17.0208 7 16.55 7 16V4C7 3.45 7.19583 2.97917 7.5875 2.5875C7.97917 2.19583 8.45 2 9 2H18C18.55 2 19.0208 2.19583 19.4125 2.5875C19.8042 2.97917 20 3.45 20 4V16C20 16.55 19.8042 17.0208 19.4125 17.4125C19.0208 17.8042 18.55 18 18 18H9ZM9 16H18V4H9V16ZM5 22C4.45 22 3.97917 21.8042 3.5875 21.4125C3.19583 21.0208 3 20.55 3 20V7C3 6.71667 3.09583 6.47917 3.2875 6.2875C3.47917 6.09583 3.71667 6 4 6C4.28333 6 4.52083 6.09583 4.7125 6.2875C4.90417 6.47917 5 6.71667 5 7V20H15C15.2833 20 15.5208 20.0958 15.7125 20.2875C15.9042 20.4792 16 20.7167 16 21C16 21.2833 15.9042 21.5208 15.7125 21.7125C15.5208 21.9042 15.2833 22 15 22H5Z"
-                  fill="currentColor"
-                ></path>
-              </svg>
+                <p class="flex items-center gap-5">
+                  <span>
+                    <svg
+                      viewBox="0 0 24 24"
+                      height="24"
+                      width="24"
+                      preserveAspectRatio="xMidYMid meet"
+                      class="cursor-pointer"
+                      fill="currentColor"
+                    >
+                      <title>phone</title>
+                      <path
+                        d="M19.23 15.26l-2.54-.29c-.61-.07-1.21.14-1.64.57l-1.84 1.84c-2.83-1.44-5.15-3.75-6.59-6.59l1.85-1.85c.43-.43.64-1.03.57-1.64l-.29-2.52c-.12-1.01-.97-1.77-1.99-1.77H5.03c-1.13 0-2.07.94-2 2.07.53 8.54 7.36 15.36 15.89 15.89 1.13.07 2.07-.87 2.07-2v-1.73c.01-1.01-.75-1.86-1.76-1.98z"
+                      ></path>
+                    </svg> </span
+                  ><span id="user-number">+55 11-555-2555</span>
+                </p>
+                <svg
+                  viewBox="0 0 24 24"
+                  height="24"
+                  width="24"
+                  preserveAspectRatio="xMidYMid meet"
+                  class="hover:cursor-pointer"
+                  fill="none"
+                >
+                  <title>copy-refreshed</title>
+                  <path
+                    d="M9 18C8.45 18 7.97917 17.8042 7.5875 17.4125C7.19583 17.0208 7 16.55 7 16V4C7 3.45 7.19583 2.97917 7.5875 2.5875C7.97917 2.19583 8.45 2 9 2H18C18.55 2 19.0208 2.19583 19.4125 2.5875C19.8042 2.97917 20 3.45 20 4V16C20 16.55 19.8042 17.0208 19.4125 17.4125C19.0208 17.8042 18.55 18 18 18H9ZM9 16H18V4H9V16ZM5 22C4.45 22 3.97917 21.8042 3.5875 21.4125C3.19583 21.0208 3 20.55 3 20V7C3 6.71667 3.09583 6.47917 3.2875 6.2875C3.47917 6.09583 3.71667 6 4 6C4.28333 6 4.52083 6.09583 4.7125 6.2875C4.90417 6.47917 5 6.71667 5 7V20H15C15.2833 20 15.5208 20.0958 15.7125 20.2875C15.9042 20.4792 16 20.7167 16 21C16 21.2833 15.9042 21.5208 15.7125 21.7125C15.5208 21.9042 15.2833 22 15 22H5Z"
+                    fill="currentColor"
+                  ></path>
+                </svg>
+              </div>
             </div>
           </div>
         </div>
-        <h2 class="text-xl">Trocar de Perfil</h2>
-        <div
-          class="group justify flex justify-evenly gap-5"
-          id="profiles-list"
-        ></div>
+        <div>
+          <h2 class="text-xl">Trocar de Perfil</h2>
+          <div
+            class="group justify flex justify-evenly gap-5"
+            id="profiles-list"
+          ></div>
+        </div>
       </div>
       <!-- <div
         class="overflow-auto *:rounded-2xl *:hover:bg-[#c2bdb826]"
@@ -405,7 +412,7 @@
             alt=""
             id="contact-avatar"
           />
-          <p class="contact-name">João Carlos</p>
+          <p class="contact-name" id="contact-name">João Carlos</p>
         </div>
         <div class="flex gap-5" id="contact-header-options">
           <div class="flex items-center gap-2">
