@@ -86,6 +86,7 @@ function setContactList() {
   contactList.message_header.classList.toggle("sticky");
 
   userProfile.container.classList.toggle("hidden");
+  userProfile.container.classList.toggle("flex");
 
   setProfile();
 }
@@ -111,7 +112,7 @@ function setProfile(standart) {
     userProfile.profile_img.src = profile[0]["profile-image"];
     aside.user_avatar_img.src = profile[0]["profile-image"];
 
-    loadContactListMessages(contacts);
+    // loadContactListMessages(contacts);
     return contacts;
   } else {
     userProfile.profiles_list.childNodes.forEach((item, index) => {
@@ -142,6 +143,47 @@ function setProfile(standart) {
 }
 
 setProfile("perfil1");
+
+function insertProfiles(nickname, img, id) {
+  const container = document.createElement("div");
+  const avatar = document.createElement("img");
+  const name = document.createElement("p");
+
+  container.className =
+    "flex flex-col items-center transition group-hover:opacity-50 hover:scale-125 hover:cursor-pointer hover:!opacity-100";
+  container.id = id;
+  avatar.className = "size-10 rounded-full shadow-md shadow-gray-400";
+
+  name.innerText = nickname;
+  avatar.src = img;
+
+  container.append(avatar, name);
+
+  userProfile.profiles_list.append(container);
+}
+
+function loadProfiles() {
+  let dados = {
+    avatar: "",
+    nickname: "",
+    id: "",
+  };
+
+  contatos["whats-users"].forEach((contato) => {
+    dados.nickname = contato.nickname;
+    dados.avatar = contato["profile-image"];
+    dados.id = contato.id;
+
+    insertProfiles(dados.nickname, dados.avatar, dados.id);
+  });
+}
+
+loadProfiles();
+
+/* 
+
+
+
 
 // Função está trazendo as mensagens dos contatos de cada perfil corretamente.
 function loadContactListMessages(contacts) {
