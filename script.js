@@ -84,6 +84,7 @@ function setContactList() {
 
   contactList.message_header.classList.toggle("hidden");
   contactList.message_header.classList.toggle("sticky");
+  contactList.container.classList.toggle("hidden");
 
   userProfile.container.classList.toggle("hidden");
   userProfile.container.classList.toggle("flex");
@@ -93,6 +94,7 @@ function setContactList() {
 
 // setContactList();
 
+// Função para inserir os dados do perfil selecionado
 function setProfile(standart) {
   let contacts;
 
@@ -100,7 +102,7 @@ function setProfile(standart) {
     profile = contatos["whats-users"].filter((contato) => contato.id === 1);
     contacts = profile[0].contacts;
     userProfile.name.innerText = profile[0].account;
-
+    getContacts(profile[0].id);
     let phone =
       profile[0].number.slice(0, 2) +
       " " +
@@ -121,6 +123,7 @@ function setProfile(standart) {
           (contato) => contato.id === index + 1,
         );
 
+        getContacts(profile[0].id);
         contacts = profile[0].contacts;
         userProfile.name.innerText = profile[0].account;
 
@@ -135,7 +138,7 @@ function setProfile(standart) {
         userProfile.profile_img.src = profile[0]["profile-image"];
         aside.user_avatar_img.src = profile[0]["profile-image"];
         // console.log(profile[0]);
-        loadContactListMessages(contacts);
+        // loadContactListMessages(contacts);
         return (contacts, profile[0]);
       });
     });
@@ -144,17 +147,21 @@ function setProfile(standart) {
 
 setProfile("perfil1");
 
+// Função para inserir os perfis na seção "Trocar Perfil"
 function insertProfiles(nickname, img, id) {
-  const container = document.createElement("div");
-  const avatar = document.createElement("img");
-  const name = document.createElement("p");
+  const container = document.createElement("div"),
+    avatar = document.createElement("img"),
+    name = document.createElement("p");
 
   container.className =
     "flex flex-col items-center transition group-hover:opacity-50 hover:scale-125 hover:cursor-pointer hover:!opacity-100";
+
   container.id = id;
+
   avatar.className = "size-10 rounded-full shadow-md shadow-gray-400";
 
   name.innerText = nickname;
+
   avatar.src = img;
 
   container.append(avatar, name);
@@ -162,6 +169,7 @@ function insertProfiles(nickname, img, id) {
   userProfile.profiles_list.append(container);
 }
 
+// Função para carregar todos os perfis
 function loadProfiles() {
   let dados = {
     avatar: "",
@@ -169,10 +177,10 @@ function loadProfiles() {
     id: "",
   };
 
-  contatos["whats-users"].forEach((contato) => {
-    dados.nickname = contato.nickname;
-    dados.avatar = contato["profile-image"];
-    dados.id = `${contato.id}`;
+  contatos["whats-users"].forEach((perfil) => {
+    dados.nickname = perfil.nickname;
+    dados.avatar = perfil["profile-image"];
+    dados.id = `${perfil.id}`;
 
     insertProfiles(dados.nickname, dados.avatar, dados.id);
   });
@@ -197,9 +205,74 @@ function getMessages(id) {
 
 getMessages(4);
 
+// Função para obter todos os contatos de um perfil
+function getContacts(id) {
+  contatos["whats-users"].find((user) => {
+    if (user.id == id) {
+      console.log(user.contacts);
+
+      // Return não é necessário, basta que ela chame a função de criação do cobtainer dos contatos
+      // return user;
+      createContactContainer(user.contacts);
+    }
+  });
+}
+
+// Função que cria o container de mensagens recebidas pelo usuário com base no objeto enviado pela função getContacts()
+
+function createContactContainer(contacts) {
+  contactList.container.innerHTML = "";
+
+  contacts.forEach((item) => {
+    let containerPrincipal = document.createElement("div"),
+      imgContato = document.createElement("img"),
+      containerSecundario = document.createElement("div"),
+      contato = document.createElement("p"),
+      content = document.createElement("p"),
+      containerHoraEMensagens = document.createElement("div"),
+      horas = document.createElement("p"),
+      mensagens = document.createElement("p");
+
+    containerPrincipal.className =
+      "contactItem grid cursor-pointer grid-cols-[50px_1fr_40px] gap-2 p-4";
+
+    imgContato.className = "rounded-full size-12";
+    imgContato.src = `https://i.pravatar.cc/${Math.floor(Math.random() * 70)}`;
+
+    containerSecundario.className = "flex flex-col overflow-hidden";
+
+    contato.className = "contato truncate";
+
+    content.className = "text-[#00000099] truncate";
+
+    containerSecundario.append(contato, content);
+
+    containerHoraEMensagens.className = "flex flex-col items-end";
+
+    horas.className = "text-[#1DAA61]";
+
+    mensagens.className =
+      "size-8 flex justify-center items-center rounded-full bg-[#1DAA61] text-white";
+
+    containerHoraEMensagens.append(horas, mensagens);
+
+    contato.innerText = item.name;
+    content.innerText = item.messages[item.messages.length - 1].content;
+
+    horas.innerText = item.messages[item.messages.length - 1].time;
+
+    mensagens.innerText = item.messages.length;
+
+    containerPrincipal.append(
+      imgContato,
+      containerSecundario,
+      containerHoraEMensagens,
+    );
+    contactList.container.append(containerPrincipal);
+  });
+}
+
 /* 
-
-
 
 
 // Função está trazendo as mensagens dos contatos de cada perfil corretamente.
