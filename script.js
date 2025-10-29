@@ -172,13 +172,30 @@ function loadProfiles() {
   contatos["whats-users"].forEach((contato) => {
     dados.nickname = contato.nickname;
     dados.avatar = contato["profile-image"];
-    dados.id = contato.id;
+    dados.id = `${contato.id}`;
 
     insertProfiles(dados.nickname, dados.avatar, dados.id);
   });
 }
 
 loadProfiles();
+
+// Função para obter as mensagens de acordo com o id recebido
+function getMessages(id) {
+  contatos["whats-users"].find((user) => {
+    if (user.id == id) {
+      user.contacts.forEach((item) => {
+        item.messages;
+        console.log(item.messages);
+      });
+
+      // console.log(user);
+      return user;
+    }
+  });
+}
+
+getMessages(4);
 
 /* 
 

@@ -5,6 +5,7 @@ export const aside = {
 };
 
 export const contactList = {
+  container: document.querySelector("#contact-list-container"),
   form: document.querySelector("#form-contact-list-header"),
   input: document.querySelector("#input-contact-list-header"),
   message_header: document.querySelector("#message-header-section"),
