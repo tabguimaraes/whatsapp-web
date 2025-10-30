@@ -6,7 +6,7 @@ import {
   messageBoard,
 } from "./modulo/elementos.js";
 
-let profile;
+let profile, contacts;
 
 messageBoard.form.addEventListener("submit", (evento) => {
   evento.preventDefault();
@@ -96,8 +96,6 @@ function setContactList() {
 
 // Função para inserir os dados do perfil selecionado
 function setProfile(standart) {
-  let contacts;
-
   if (standart) {
     profile = contatos["whats-users"].filter((contato) => contato.id === 1);
     contacts = profile[0].contacts;
@@ -113,6 +111,8 @@ function setProfile(standart) {
 
     userProfile.profile_img.src = profile[0]["profile-image"];
     aside.user_avatar_img.src = profile[0]["profile-image"];
+
+    reloadContacts();
 
     return contacts;
   } else {
@@ -137,6 +137,7 @@ function setProfile(standart) {
         userProfile.profile_img.src = profile[0]["profile-image"];
         aside.user_avatar_img.src = profile[0]["profile-image"];
 
+        reloadContacts();
         return (contacts, profile[0]);
       });
     });
@@ -186,6 +187,8 @@ function loadProfiles() {
 
 loadProfiles();
 
+/*
+
 // Função para obter as mensagens de acordo com o id de perfil recebido
 
 function getMessages(id) {
@@ -194,13 +197,14 @@ function getMessages(id) {
       user.contacts.forEach((item, index) => {
         item.messages;
       });
-      console.log(user.contacts[2]);
       return user;
     }
   });
 }
 
-getMessages(1);
+getMessages(1); 
+
+*/
 
 // Função para obter todos os contatos de um perfil
 function getContacts(id) {
@@ -216,7 +220,7 @@ function getContacts(id) {
 function createContactContainer(contacts) {
   contactList.container.innerHTML = "";
 
-  contacts.forEach((item) => {
+  contacts.forEach((item, index) => {
     let containerPrincipal = document.createElement("div"),
       imgContato = document.createElement("img"),
       containerSecundario = document.createElement("div"),
@@ -229,8 +233,10 @@ function createContactContainer(contacts) {
     containerPrincipal.className =
       "contactItem grid cursor-pointer grid-cols-[50px_1fr_40px] gap-2 p-4";
 
+    containerPrincipal.id = `${index}`;
+    // console.log(contacts[index]);
     imgContato.className = "rounded-full size-12";
-    imgContato.src = `https://i.pravatar.cc/${Math.floor(Math.random() * 70)}`;
+    imgContato.src = `https://i.pravatar.cc/150?img=${Math.floor(Math.random() * 70)}`;
 
     containerSecundario.className = "flex flex-col overflow-hidden";
 
@@ -263,4 +269,31 @@ function createContactContainer(contacts) {
     );
     contactList.container.append(containerPrincipal);
   });
+}
+
+// Faz o reload da lista de contatos e captura o click em cada usuário da lista, individualmente
+function reloadContacts() {
+  const mensagens = document.querySelectorAll(".contactItem ");
+
+  mensagens.forEach((item, index) => {
+    item.addEventListener("click", () => {
+      let avatar = item.firstChild.src;
+
+      // com base em contacts[index] é possivel preencher o header da lista de mensagens
+      // console.log(contacts[index]);
+      createMessageBoard(contacts[index], avatar);
+    });
+  });
+}
+
+function createMessageBoard(contactMessages, avatar) {
+  console.log(contactMessages);
+
+  messageBoard.main.classList.add("bg-[url(./img/whatsapp_bg.png)]");
+  messageBoard.main.querySelector("header").classList.remove("hidden");
+  messageBoard.main.querySelector("section").classList.remove("hidden");
+  messageBoard.main.querySelector("form").classList.remove("hidden");
+
+  messageBoard.contact_name.innerText = contactMessages.name;
+  messageBoard.contact_avatar.src = avatar;
 }
