@@ -48,10 +48,10 @@ function createMessage(mensagem, sender, hour) {
 
   span.className = "pl-16 text-xs";
 
-  if (hour === "" || hour === undefined) {
-    span.innerText = `${getHour()}`;
-  } else {
+  if (hour) {
     span.innerText = `${hour}`;
+  } else {
+    span.innerText = `${getHour()}`;
   }
 
   createdMessage.appendChild(span);
@@ -245,7 +245,6 @@ function createContactContainer(contacts) {
       "contactItem grid cursor-pointer grid-cols-[50px_1fr_40px] gap-2 p-4";
 
     containerPrincipal.id = `${index}`;
-    // console.log(contacts[index]);
     imgContato.className = "rounded-full size-12";
     imgContato.src = `https://i.pravatar.cc/150?img=${Math.floor(Math.random() * 70)}`;
 
@@ -291,7 +290,6 @@ function reloadContacts() {
       let avatar = item.firstChild.src;
 
       // com base em contacts[index] é possivel preencher o header da lista de mensagens
-      // console.log(contacts[index]);
       createMessageBoard(contacts[index], avatar);
     });
   });
@@ -317,7 +315,6 @@ function insertMessages(messagesList) {
   messageBoard.container.innerHTML = "";
 
   mensagens.forEach((item) => {
-    // console.log(item, item.sender, item.time);
     createMessage(item.content, item.sender, item.time);
   });
 }

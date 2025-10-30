@@ -200,7 +200,7 @@
       </div>
     </aside>
     <section
-      class="flex h-full flex-col gap-6 overflow-auto border-r-[1px] border-gray-300 bg-white p-5"
+      class="flex h-full flex-col gap-6 overflow-y-auto border-r-[1px] border-gray-300 bg-white p-5"
       id="contact-list-section"
     >
       <header class="sticky p-5 pt-0" id="message-header-section">
@@ -306,11 +306,9 @@
               >Mudar foto de perfil</span
             >
           </div>
-
           <div class="flex flex-col gap-5">
             <p>Nome</p>
             <p class="flex justify-between text-xl font-light" id="user-name">
-              John Doe
               <span>
                 <svg
                   viewBox="0 0 24 24"
@@ -370,7 +368,7 @@
                         d="M19.23 15.26l-2.54-.29c-.61-.07-1.21.14-1.64.57l-1.84 1.84c-2.83-1.44-5.15-3.75-6.59-6.59l1.85-1.85c.43-.43.64-1.03.57-1.64l-.29-2.52c-.12-1.01-.97-1.77-1.99-1.77H5.03c-1.13 0-2.07.94-2 2.07.53 8.54 7.36 15.36 15.89 15.89 1.13.07 2.07-.87 2.07-2v-1.73c.01-1.01-.75-1.86-1.76-1.98z"
                       ></path>
                     </svg> </span
-                  ><span id="user-number">+55 11-555-2555</span>
+                  ><span id="user-number"></span>
                 </p>
                 <svg
                   viewBox="0 0 24 24"
@@ -457,72 +455,10 @@
         </div>
       </header>
       <section
-        class="grid flex-1 grid-flow-col auto-rows-min grid-cols-4 content-end gap-4 overflow-y-auto px-14 pt-5"
+        class="grid h-full flex-1 grid-flow-col auto-rows-min grid-cols-4 content-end gap-4 overflow-y-auto px-14 pt-5"
         id="message-board-container"
-      >
-        <!-- <div
-          class="received-message-container col-start-1 col-end-4 w-fit rounded-lg bg-white"
-        >
-          <div class="place-self-start px-5 py-1">
-            <p class="flex items-end justify-between">
-              Ex et inventore soluta optio blanditiis excepturi aliquam quo
-              architecto quas?
-            </p>
-          </div>
-        </div>
-        <div
-          class="sent-message-container col-start-2 col-end-5 overflow-hidden rounded-lg *:bg-[#d9fdd3]"
-        >
-          <div class="w-fit place-self-end px-5 py-1">
-            <p class="flex items-end justify-between">Optio, vero dolores.</p>
-          </div>
-        </div>
-        <div
-          class="received-message-container col-start-1 col-end-4 w-fit rounded-lg bg-white"
-        >
-          <div class="place-self-start px-5 py-1">
-            <p class="flex items-end justify-between">
-              Distinctio itaque explicabo esse dolorum nam! Consequuntur
-              laborum, illo ducimus possimus optio aut?
-            </p>
-          </div>
-        </div>
-        <div
-          class="received-message-container col-start-1 col-end-4 w-fit rounded-lg bg-white"
-        >
-          <div class="place-self-start px-5 py-1">
-            <p class="flex items-end justify-between">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-            </p>
-          </div>
-        </div>
-        <div
-          class="sent-message-container col-start-2 col-end-5 overflow-hidden rounded-lg *:bg-[#d9fdd3]"
-        >
-          <div class="w-fit place-self-end px-5 py-1">
-            <p class="flex items-end justify-between">
-              Animi eos, maxime assumenda saepe temporibus dolore? Tenetur?
-            </p>
-          </div>
-        </div>
-        <div
-          class="sent-message-container col-start-2 col-end-5 overflow-hidden rounded-lg *:bg-[#d9fdd3]"
-        >
-          <div class="w-fit place-self-end px-5 py-1">
-            <p class="flex items-end justify-between">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-              labore ut cum ipsam, deleniti beatae, laudantium libero voluptatem
-              molestiae a sit. Quia omnis impedit fugiat? Inventore velit natus
-              dignissimos ex.
-            </p>
-          </div>
-        </div> -->
-      </section>
-      <form
-        class="relative bottom-0 flex-shrink-0 p-5"
-        action=""
-        id="form-send-message"
-      >
+      ></section>
+      <form class="relative flex-shrink-0 p-5" action="" id="form-send-message">
         <svg
           viewBox="0 0 24 24"
           height="24"
