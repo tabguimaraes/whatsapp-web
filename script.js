@@ -12,7 +12,7 @@ messageBoard.form.addEventListener("submit", (evento) => {
   evento.preventDefault();
   let userInput = messageBoard.input.value;
   if (userInput) {
-    createMessage(userInput);
+    createMessage(userInput, "me");
     // Limpa o valor do value após o enter
     messageBoard.input.value = "";
   }
@@ -38,7 +38,7 @@ function getHour() {
 }
 
 // Cria o paragrafo da mensagem, insere a hora em um span e o adiciona no paragrafo, antes de enviar para a função que cria o container da mensagem
-function createMessage(mensagem, sender) {
+function createMessage(mensagem, sender, hour) {
   let createdMessage = document.createElement("p"),
     span = document.createElement("span");
 
@@ -47,22 +47,33 @@ function createMessage(mensagem, sender) {
   createdMessage.innerText = mensagem;
 
   span.className = "pl-16 text-xs";
-  span.innerText = `${getHour()}`;
+
+  if (hour === "" || hour === undefined) {
+    span.innerText = `${getHour()}`;
+  } else {
+    span.innerText = `${hour}`;
+  }
 
   createdMessage.appendChild(span);
 
-  createContainerSendMessages(createdMessage);
+  createContainerSendMessages(createdMessage, sender);
 }
 
 // Cria o container que vai armazenar a mensagem digitada
-function createContainerSendMessages(mensagem) {
+function createContainerSendMessages(mensagem, sender) {
   let containerPrincipal = document.createElement("div"),
     containerSecundario = document.createElement("div");
 
-  containerPrincipal.className =
-    "sentMessages col-start-2 col-end-5 overflow-hidden rounded-lg *:bg-[#d9fdd3]";
+  if (sender !== "me") {
+    containerPrincipal.className =
+      "received-message-container col-start-1 col-end-4 w-fit rounded-lg bg-white";
+    containerSecundario.className = "place-self-start px-5 py-1";
+  } else {
+    containerPrincipal.className =
+      "sent-message-container col-start-2 col-end-5 overflow-hidden rounded-lg *:bg-[#d9fdd3]";
 
-  containerSecundario.className = "w-fit place-self-end px-5 py-1";
+    containerSecundario.className = "w-fit place-self-end px-5 py-1";
+  }
 
   containerSecundario.appendChild(mensagem);
   containerPrincipal.appendChild(containerSecundario);
@@ -303,8 +314,11 @@ function createMessageBoard(contactMessages, avatar) {
 function insertMessages(messagesList) {
   let mensagens = messagesList;
 
+  messageBoard.container.innerHTML = "";
+
   mensagens.forEach((item) => {
-    console.log(item);
+    // console.log(item, item.sender, item.time);
+    createMessage(item.content, item.sender, item.time);
   });
 }
 
