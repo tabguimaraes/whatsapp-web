@@ -38,7 +38,7 @@ function getHour() {
 }
 
 // Cria o paragrafo da mensagem, insere a hora em um span e o adiciona no paragrafo, antes de enviar para a função que cria o container da mensagem
-function createMessage(mensagem) {
+function createMessage(mensagem, sender) {
   let createdMessage = document.createElement("p"),
     span = document.createElement("span");
 
@@ -287,7 +287,7 @@ function reloadContacts() {
 }
 
 function createMessageBoard(contactMessages, avatar) {
-  console.log(contactMessages);
+  let messagesList = contactMessages.messages;
 
   messageBoard.main.classList.add("bg-[url(./img/whatsapp_bg.png)]");
   messageBoard.main.querySelector("header").classList.remove("hidden");
@@ -296,4 +296,20 @@ function createMessageBoard(contactMessages, avatar) {
 
   messageBoard.contact_name.innerText = contactMessages.name;
   messageBoard.contact_avatar.src = avatar;
+
+  insertMessages(messagesList);
 }
+
+function insertMessages(messagesList) {
+  let mensagens = messagesList;
+
+  mensagens.forEach((item) => {
+    console.log(item);
+  });
+}
+
+// Limpa a messageBoard no carregamento inicial da página
+messageBoard.main.classList.remove("bg-[url(./img/whatsapp_bg.png)]");
+messageBoard.main.querySelector("header").classList.add("hidden");
+messageBoard.main.querySelector("section").classList.add("hidden");
+messageBoard.main.querySelector("form").classList.add("hidden");
