@@ -61,24 +61,25 @@ function createMessage(mensagem, sender, hour) {
 
 // Cria o container que vai armazenar a mensagem digitada
 function createContainerSendMessages(mensagem, sender) {
-  let containerPrincipal = document.createElement("div"),
-    containerSecundario = document.createElement("div");
+  let mainContainer = document.createElement("div"),
+    subContainer = document.createElement("div");
 
   if (sender !== "me") {
-    containerPrincipal.className =
+    mainContainer.className =
       "received-message-container col-start-1 col-end-4 w-fit rounded-lg bg-white";
-    containerSecundario.className = "place-self-start px-5 py-1";
+    subContainer.className = "place-self-start px-5 py-1";
   } else {
-    containerPrincipal.className =
-      "sent-message-container col-start-2 col-end-5 overflow-hidden rounded-lg *:bg-[#d9fdd3]";
+    mainContainer.className =
+      "sent-message-container col-start-2 col-end-5 overflow-hidden";
 
-    containerSecundario.className = "w-fit place-self-end px-5 py-1";
+    subContainer.className =
+      "w-fit place-self-end px-5 py-1 bg-[#d9fdd3] rounded-lg";
   }
 
-  containerSecundario.appendChild(mensagem);
-  containerPrincipal.appendChild(containerSecundario);
+  subContainer.appendChild(mensagem);
+  mainContainer.appendChild(subContainer);
 
-  insertMessage(containerPrincipal);
+  insertMessage(mainContainer);
 }
 
 //  Insere o container com a msg no local correto dentro do grid Message Board
@@ -232,29 +233,29 @@ function createContactContainer(contacts) {
   contactList.container.innerHTML = "";
 
   contacts.forEach((item, index) => {
-    let containerPrincipal = document.createElement("div"),
+    let mainContainer = document.createElement("div"),
       imgContato = document.createElement("img"),
-      containerSecundario = document.createElement("div"),
+      subContainer = document.createElement("div"),
       contato = document.createElement("p"),
       content = document.createElement("p"),
       containerHoraEMensagens = document.createElement("div"),
       horas = document.createElement("p"),
       mensagens = document.createElement("p");
 
-    containerPrincipal.className =
+    mainContainer.className =
       "contactItem grid cursor-pointer grid-cols-[50px_1fr_40px] gap-2 p-4";
 
-    containerPrincipal.id = `${index}`;
+    mainContainer.id = `${index}`;
     imgContato.className = "rounded-full size-12";
     imgContato.src = `https://i.pravatar.cc/150?img=${Math.floor(Math.random() * 70)}`;
 
-    containerSecundario.className = "flex flex-col overflow-hidden";
+    subContainer.className = "flex flex-col overflow-hidden";
 
     contato.className = "contato truncate";
 
     content.className = "text-[#00000099] truncate";
 
-    containerSecundario.append(contato, content);
+    subContainer.append(contato, content);
 
     containerHoraEMensagens.className = "flex flex-col items-end";
 
@@ -272,12 +273,8 @@ function createContactContainer(contacts) {
 
     mensagens.innerText = item.messages.length;
 
-    containerPrincipal.append(
-      imgContato,
-      containerSecundario,
-      containerHoraEMensagens,
-    );
-    contactList.container.append(containerPrincipal);
+    mainContainer.append(imgContato, subContainer, containerHoraEMensagens);
+    contactList.container.append(mainContainer);
   });
 }
 
