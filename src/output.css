@@ -211,14 +211,8 @@
   .left-2 {
     left: calc(var(--spacing) * 2);
   }
-  .left-\[3\.5\%\] {
-    left: 3.5%;
-  }
   .left-\[5\.5\%\] {
     left: 5.5%;
-  }
-  .left-\[6\.5\%\] {
-    left: 6.5%;
   }
   .left-\[8\.5\%\] {
     left: 8.5%;
@@ -286,10 +280,6 @@
   .size-14 {
     width: calc(var(--spacing) * 14);
     height: calc(var(--spacing) * 14);
-  }
-  .size-28 {
-    width: calc(var(--spacing) * 28);
-    height: calc(var(--spacing) * 28);
   }
   .size-36 {
     width: calc(var(--spacing) * 36);
@@ -433,9 +423,6 @@
   .bg-\[\#1DAA61\] {
     background-color: #1DAA61;
   }
-  .bg-\[\#333\] {
-    background-color: #333;
-  }
   .bg-\[\#c2bdb826\] {
     background-color: #c2bdb826;
   }
@@ -444,9 +431,6 @@
   }
   .bg-\[\#f7f5f3\] {
     background-color: #f7f5f3;
-  }
-  .bg-amber-50 {
-    background-color: var(--color-amber-50);
   }
   .bg-black {
     background-color: var(--color-black);
@@ -501,6 +485,15 @@
   }
   .pl-22 {
     padding-left: calc(var(--spacing) * 22);
+  }
+  .pl-\[2\%\] {
+    padding-left: 2%;
+  }
+  .pl-\[9\%\] {
+    padding-left: 9%;
+  }
+  .pl-\[9\.5\%\] {
+    padding-left: 9.5%;
   }
   .text-2xl {
     font-size: var(--text-2xl);
