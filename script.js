@@ -199,25 +199,6 @@ function loadProfiles() {
 
 loadProfiles();
 
-/*
-
-// Função para obter as mensagens de acordo com o id de perfil recebido
-
-function getMessages(id) {
-  contatos["whats-users"].find((user) => {
-    if (user.id == id) {
-      user.contacts.forEach((item, index) => {
-        item.messages;
-      });
-      return user;
-    }
-  });
-}
-
-getMessages(1); 
-
-*/
-
 // Função para obter todos os contatos de um perfil
 function getContacts(id) {
   contatos["whats-users"].find((user) => {
